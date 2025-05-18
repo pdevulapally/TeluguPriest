@@ -1,5 +1,7 @@
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type ServiceType = {
   id: string;
@@ -86,13 +88,18 @@ const services: ServiceType[] = [
 ];
 
 const ServicesGrid = () => {
-  const [language, setLanguage] = useState<'en' | 'te'>('en');
+  const { language, t } = useLanguage();
+  const navigate = useNavigate();
+  
+  const handleServiceSelect = (serviceId: string) => {
+    navigate(`/booking?service=${serviceId}`);
+  };
   
   return (
     <section className="bg-white py-16" id="services">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-maroon text-center mb-8">
-          {language === 'en' ? 'Our Services' : 'మా సేవలు'}
+          {t('Our Services', 'మా సేవలు')}
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -110,8 +117,11 @@ const ServicesGrid = () => {
               <p className="text-sm text-muted-foreground mb-4">
                 {language === 'en' ? service.description?.en : service.description?.te}
               </p>
-              <button className="puja-button w-full text-sm">
-                {language === 'en' ? 'Select' : 'ఎంచుకోండి'}
+              <button 
+                className="puja-button w-full text-sm"
+                onClick={() => handleServiceSelect(service.id)}
+              >
+                {t('Select', 'ఎంచుకోండి')}
               </button>
             </div>
           ))}

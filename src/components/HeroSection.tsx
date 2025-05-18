@@ -1,5 +1,6 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   const { language, t } = useLanguage();
@@ -17,13 +18,13 @@ const HeroSection = () => {
         </h1>
         
         <p className="text-lg md:text-xl text-foreground max-w-3xl mx-auto mb-8">
-          {t('Perform Satyanarayana Vratam, Barasala, Gruhapravesam, and more – in-person or online',
-            'సత్యనారాయణ వ్రతం, బారసాల, గృహప్రవేశం, మరియు మరిన్ని - వ్యక్తిగతంగా లేదా ఆన్‌లైన్‌లో నిర్వహించండి')}
+          {t('Perform Satyanarayana Vratam, Barasala, Gruhapravesam, and more with Pandit Eshwar Prasad – in-person or online',
+            'పండిత ఈశ్వర్ ప్రసాద్ తో సత్యనారాయణ వ్రతం, బారసాల, గృహప్రవేశం, మరియు మరిన్ని - వ్యక్తిగతంగా లేదా ఆన్‌లైన్‌లో నిర్వహించండి')}
         </p>
         
-        <a href="#book" className="glowing-btn animate-pulse-soft">
+        <Link to="/booking" className="glowing-btn animate-pulse-soft inline-block">
           {t('Book a Puja', 'పూజ బుక్ చేయండి')}
-        </a>
+        </Link>
         
         <div className="mt-12 devotional-divider"></div>
       </div>

@@ -4,7 +4,6 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import ServicesGrid from '@/components/ServicesGrid';
-import BookingFlow from '@/components/BookingFlow';
 import PanditBio from '@/components/PanditBio';
 import GlobalAvailability from '@/components/GlobalAvailability';
 import ContactSection from '@/components/ContactSection';
@@ -25,7 +24,6 @@ const Index = () => {
         <main className="flex-grow">
           <HeroSection />
           <ServicesGrid />
-          <BookingFlow />
           <PanditBio />
           <GlobalAvailability />
           <ContactSection />
