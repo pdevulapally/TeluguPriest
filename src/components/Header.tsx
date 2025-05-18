@@ -1,13 +1,14 @@
 
 import { useState } from 'react';
-import { Bell, Phone, WhatsApp } from 'lucide-react';
+import { Bell, Phone, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Header = () => {
-  const [language, setLanguage] = useState<'en' | 'te'>('en');
+  const { language, setLanguage, t } = useLanguage();
 
   const toggleLanguage = () => {
-    setLanguage(prev => prev === 'en' ? 'te' : 'en');
+    setLanguage(language === 'en' ? 'te' : 'en');
   };
 
   return (
@@ -17,7 +18,7 @@ const Header = () => {
           <div className="flex items-center">
             <Bell className="h-7 w-7 text-maroon" />
             <span className="ml-2 font-bold text-xl text-maroon">
-              {language === 'en' ? 'Telugu Priest' : 'తెలుగు పూజారి'}
+              {t('Telugu Priest', 'తెలుగు పూజారి')}
             </span>
           </div>
         </div>
@@ -40,7 +41,7 @@ const Header = () => {
               <Phone className="h-5 w-5" />
             </Button>
             <Button variant="ghost" size="icon" className="text-green-600">
-              <WhatsApp className="h-5 w-5" />
+              <MessageSquare className="h-5 w-5" />
             </Button>
           </div>
         </div>
