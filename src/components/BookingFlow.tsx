@@ -23,6 +23,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Booking, BookingService } from "@/types/booking";
 import { addBooking, getBookedDates } from "@/services/bookingService";
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 type Step = "location" | "service" | "date";
 
@@ -34,6 +35,7 @@ const BookingFlow = () => {
   const [date, setDate] = useState<Date | undefined>(undefined);
   const [bookedDates, setBookedDates] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   
   useEffect(() => {
     // Load booked dates when component mounts
@@ -92,28 +94,17 @@ const BookingFlow = () => {
     setIsLoading(true);
     
     try {
-      // Create a new booking
-      const newBooking = {
-        location,
-        service,
-        date: date.toISOString(),
-      };
+      // Navigate to the booking page with the selected options
+      const queryParams = new URLSearchParams();
+      if (service) queryParams.set('service', service);
+      if (location) queryParams.set('location', location);
+      if (date) queryParams.set('date', date.toISOString());
       
-      await addBooking(newBooking);
-      
-      toast.success(
-        t("Booking request sent successfully!", "బుకింగ్ అభ్యర్థన విజయవంతంగా పంపబడింది!")
-      );
-      
-      // Reset form after submission
-      setLocation("");
-      setService("");
-      setDate(undefined);
-      setStep("location");
+      navigate(`/booking?${queryParams.toString()}`);
     } catch (error) {
-      console.error("Error submitting booking:", error);
+      console.error("Error navigating to booking:", error);
       toast.error(
-        t("Failed to submit booking. Please try again.", "బుకింగ్ సమర్పించడంలో విఫలమైంది. దయచేసి మళ్లీ ప్రయత్నించండి.")
+        t("Failed to proceed to booking. Please try again.", "బుకింగ్‌కు వెళ్లడంలో విఫలమైంది. దయచేసి మళ్లీ ప్రయత్నించండి.")
       );
     } finally {
       setIsLoading(false);
@@ -279,7 +270,7 @@ const BookingFlow = () => {
                 className="bg-primary text-white text-lg py-6 px-8"
                 disabled={isLoading}
               >
-                {isLoading ? t("Submitting...", "సమర్పిస్తోంది...") : t("Submit Request", "అభ్యర్థనను సమర్పించండి")}
+                {isLoading ? t("Processing...", "ప్రాసెస్ చేస్తున్నాం...") : t("Continue to Booking", "బుకింగ్‌కు కొనసాగించండి")}
               </Button>
             )}
           </div>

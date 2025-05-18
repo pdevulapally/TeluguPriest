@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/select";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { BookingService } from "@/types/booking";
+import { BookingService, BookingServices } from "@/types/booking";
 import { addBooking, getBookedDates } from "@/services/bookingService";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
@@ -57,8 +57,22 @@ const BookingPage = () => {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const serviceParam = params.get('service');
-    if (serviceParam && Object.values(BookingService).includes(serviceParam as BookingService)) {
+    if (serviceParam && Object.values(BookingServices).includes(serviceParam as BookingService)) {
       setService(serviceParam as BookingService);
+    }
+    
+    const locationParam = params.get('location');
+    if (locationParam) {
+      setLocation(locationParam);
+    }
+    
+    const dateParam = params.get('date');
+    if (dateParam) {
+      try {
+        setDate(new Date(dateParam));
+      } catch (e) {
+        console.error("Invalid date parameter:", e);
+      }
     }
   }, []);
   

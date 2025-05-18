@@ -23,3 +23,14 @@ export type BookingService =
   | 'annaprasana'
   | 'upanayanam'
   | 'custom';
+
+// Create an object with the booking service values for use in JavaScript
+export const BookingServices = {
+  satyanarayana: 'satyanarayana',
+  barasala: 'barasala',
+  gruhapravesam: 'gruhapravesam',
+  wedding: 'wedding',
+  annaprasana: 'annaprasana',
+  upanayanam: 'upanayanam',
+  custom: 'custom',
+} as const;
