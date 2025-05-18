@@ -1,10 +1,13 @@
 
+// Om Ganesha Namah 🕉️
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import '@/lib/firebase'; // Import to ensure Firebase is initialized
 
 const AdminLogin = () => {
   const navigate = useNavigate();

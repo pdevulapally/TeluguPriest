@@ -1,9 +1,8 @@
 
 import { Booking } from '@/types/booking';
-import { collection, addDoc, getDocs, query, where, Timestamp, getFirestore } from 'firebase/firestore';
+import { collection, addDoc, getDocs, query, where, Timestamp, doc, updateDoc } from 'firebase/firestore';
 import { format, parseISO } from 'date-fns';
-
-const db = getFirestore();
+import { db } from '@/lib/firebase';
 
 export const addBooking = async (booking: Omit<Booking, 'id' | 'createdAt' | 'status'>): Promise<string> => {
   try {
@@ -71,8 +70,8 @@ export const updateBookingStatus = async (
   status: 'pending' | 'confirmed' | 'completed' | 'cancelled'
 ): Promise<boolean> => {
   try {
-    const docRef = collection(db, 'bookings', id);
-    await addDoc(docRef, { status });
+    const bookingRef = doc(db, 'bookings', id);
+    await updateDoc(bookingRef, { status });
     return true;
   } catch (error) {
     console.error('Error updating booking status:', error);
