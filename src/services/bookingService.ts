@@ -1,4 +1,3 @@
-
 import { Booking } from '@/types/booking';
 import { collection, addDoc, getDocs, query, where, Timestamp, doc, updateDoc } from 'firebase/firestore';
 import { format, parseISO } from 'date-fns';

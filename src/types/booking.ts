@@ -4,11 +4,14 @@ export interface Booking {
   location: string;
   service: string;
   date: string; // ISO date string
-  customerName?: string;
-  customerEmail?: string;
-  customerPhone?: string;
-  status: 'pending' | 'confirmed' | 'completed' | 'cancelled';
+  customerName: string;
+  customerEmail: string;
+  customerPhone: string;
+  address?: string;
+  city: string;
+  country: string;
   notes?: string;
+  status: 'pending' | 'confirmed' | 'completed' | 'cancelled';
   createdAt: string;
 }
 
