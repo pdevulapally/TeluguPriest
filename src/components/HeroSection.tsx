@@ -1,8 +1,8 @@
 
-import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const HeroSection = () => {
-  const [language, setLanguage] = useState<'en' | 'te'>('en');
+  const { language, t } = useLanguage();
   
   return (
     <section className="relative bg-gradient-to-b from-cream to-white py-16 md:py-24">
@@ -12,20 +12,18 @@ const HeroSection = () => {
         </div>
         
         <h1 className="text-3xl md:text-5xl font-bold text-maroon mb-4">
-          {language === 'en' 
-            ? 'Book Your Trusted Telugu Pandit – Anywhere in the World'
-            : 'మీ నమ్మకమైన తెలుగు పండితుడిని బుక్ చేసుకోండి - ప్రపంచంలో ఎక్కడైనా'}
+          {t('Book Your Trusted Telugu Pandit – Anywhere in the World',
+            'మీ నమ్మకమైన తెలుగు పండితుడిని బుక్ చేసుకోండి - ప్రపంచంలో ఎక్కడైనా')}
         </h1>
         
         <p className="text-lg md:text-xl text-foreground max-w-3xl mx-auto mb-8">
-          {language === 'en'
-            ? 'Perform Satyanarayana Vratam, Barasala, Gruhapravesam, and more – in-person or online'
-            : 'సత్యనారాయణ వ్రతం, బారసాల, గృహప్రవేశం, మరియు మరిన్ని - వ్యక్తిగతంగా లేదా ఆన్‌లైన్‌లో నిర్వహించండి'}
+          {t('Perform Satyanarayana Vratam, Barasala, Gruhapravesam, and more – in-person or online',
+            'సత్యనారాయణ వ్రతం, బారసాల, గృహప్రవేశం, మరియు మరిన్ని - వ్యక్తిగతంగా లేదా ఆన్‌లైన్‌లో నిర్వహించండి')}
         </p>
         
-        <button className="glowing-btn animate-pulse-soft">
-          {language === 'en' ? 'Book a Puja' : 'పూజ బుక్ చేయండి'}
-        </button>
+        <a href="#book" className="glowing-btn animate-pulse-soft">
+          {t('Book a Puja', 'పూజ బుక్ చేయండి')}
+        </a>
         
         <div className="mt-12 devotional-divider"></div>
       </div>
