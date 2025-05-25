@@ -22,6 +22,9 @@ export type BookingService =
   | 'wedding'
   | 'annaprasana'
   | 'upanayanam'
+  | 'samvatsarika-pitru'
+  | 'masika-pitru'
+  | 'abdika-pitru'
   | 'custom';
 
 // Create an object with the booking service values for use in JavaScript
@@ -32,5 +35,8 @@ export const BookingServices = {
   wedding: 'wedding',
   annaprasana: 'annaprasana',
   upanayanam: 'upanayanam',
+  samvatsarikaPitru: 'samvatsarika-pitru',
+  masikaPitru: 'masika-pitru',
+  abdikaPitru: 'abdika-pitru',
   custom: 'custom',
 } as const;

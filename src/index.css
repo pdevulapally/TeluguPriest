@@ -37,6 +37,12 @@
     --ring: 30 91% 32%;
 
     --radius: 0.75rem;
+
+    /* Custom colors */
+    --saffron: 38 100% 50%;
+    --gold: 42 100% 50%;
+    --maroon: 354 75% 25%;
+    --cream: 40 100% 97%;
   }
 
   * {
@@ -102,5 +108,61 @@
 
   .language-toggle-option.active {
     @apply bg-saffron text-white;
+  }
+
+  /* Animation utilities */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  /* Text utilities */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .service-card {
+      @apply p-4;
+    }
+    
+    .glowing-btn {
+      @apply px-6 py-3 text-base;
+    }
   }
 }

@@ -13,17 +13,17 @@ const HeroSection = () => {
         </div>
         
         <h1 className="text-3xl md:text-5xl font-bold text-maroon mb-4">
-          {t('Book Your Trusted Telugu Pandit – Anywhere in the World',
-            'మీ నమ్మకమైన తెలుగు పండితుడిని బుక్ చేసుకోండి - ప్రపంచంలో ఎక్కడైనా')}
+          {t('Authentic Telugu Temple Services with Pandit Eswar Prasad Valavalapalli',
+            'పండిత ఈశ్వర్ ప్రసాద్ వలవలపల్లితో అసలైన తెలుగు దేవాలయ సేవలు')}
         </h1>
         
-        <p className="text-lg md:text-xl text-foreground max-w-3xl mx-auto mb-8">
-          {t('Perform Satyanarayana Vratam, Barasala, Gruhapravesam, and more with Pandit Eshwar Prasad – in-person or online',
-            'పండిత ఈశ్వర్ ప్రసాద్ తో సత్యనారాయణ వ్రతం, బారసాల, గృహప్రవేశం, మరియు మరిన్ని - వ్యక్తిగతంగా లేదా ఆన్‌లైన్‌లో నిర్వహించండి')}
+        <p className="text-lg md:text-xl text-foreground max-w-4xl mx-auto mb-8">
+          {t('Experience sacred Vedic rituals, traditional Telugu ceremonies, and ancestral worship performed with devotion and authenticity – available worldwide, both in-person and online',
+            'భక్తి మరియు ప్రామాణికతతో నిర్వహించబడే పవిత్ర వైదిక కర్మలు, సాంప్రదాయ తెలుగు వేడుకలు మరియు పితృ పూజలను అనుభవించండి - ప్రపంచవ్యాప్తంగా వ్యక్తిగతంగా మరియు ఆన్‌లైన్‌లో అందుబాటులో')}
         </p>
         
         <Link to="/booking" className="glowing-btn animate-pulse-soft inline-block">
-          {t('Book a Puja', 'పూజ బుక్ చేయండి')}
+          {t('Book Sacred Services', 'పవిత్ర సేవలను బుక్ చేయండి')}
         </Link>
         
         <div className="mt-12 devotional-divider"></div>

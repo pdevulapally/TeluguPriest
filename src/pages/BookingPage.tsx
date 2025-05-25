@@ -358,6 +358,15 @@ const BookingPage = () => {
                       <SelectItem value="upanayanam">
                         {t("Upanayanam", "ఉపనయనం")}
                       </SelectItem>
+                      <SelectItem value="samvatsarika-pitru">
+                        {t("Samvatsarika Pitru Puja", "సంవత్సరిక పితృ పూజ")}
+                      </SelectItem>
+                      <SelectItem value="masika-pitru">
+                        {t("Masika Pitru Puja", "మాసిక పితృ పూజ")}
+                      </SelectItem>
+                      <SelectItem value="abdika-pitru">
+                        {t("Abdika Pitru Puja", "ఆబ్దిక పితృ పూజ")}
+                      </SelectItem>
                       <SelectItem value="custom">
                         {t("Custom Puja", "కస్టమ్ పూజ")}
                       </SelectItem>

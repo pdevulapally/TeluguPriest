@@ -11,6 +11,7 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminLayout from "./components/AdminLayout";
 import BookingPage from "./pages/BookingPage";
+import ServiceDetailPage from "./pages/ServiceDetailPage";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/booking" element={<BookingPage />} />
+            <Route path="/service/:serviceId" element={<ServiceDetailPage />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin" element={<AdminLayout />}>
               <Route path="dashboard" element={<AdminDashboard />} />
