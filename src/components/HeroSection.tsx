@@ -20,12 +20,7 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-4 text-center relative z-10 py-20">
         {/* Main hero image */}
-        <div className="flex justify-center mb-8">
-          <div className="relative">
-            <img src="https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=400&h=300&fit=crop" alt="Temple ceremony" className="rounded-2xl shadow-2xl w-80 h-60 object-cover border-4 border-white/20" />
-            
-          </div>
-        </div>
+        
         
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-maroon mb-6 leading-tight">
           <span className="block mb-2">
