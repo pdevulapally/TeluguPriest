@@ -29,7 +29,7 @@ export const serviceDetails: ServiceDetail[] = [
     id: 'satyanarayana',
     nameEn: 'Satyanarayana Vratam',
     nameTe: 'సత్యనారాయణ వ్రతం',
-    icon: '🪔',
+    icon: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop',
     shortDescriptionEn: 'A sacred puja honoring Lord Vishnu in the form of Satya Narayana.',
     shortDescriptionTe: 'సత్య నారాయణ రూపంలో భగవాన్ విష్ణు మూర్తిని ఆరాధించే పవిత్రమైన పూజ.',
     detailedDescriptionEn: 'The Satyanarayana Vratam is one of the most popular and widely performed pujas in Hindu tradition. This sacred ritual is dedicated to Lord Vishnu in his form as Satya Narayana, the embodiment of truth and righteousness. The puja is typically performed to seek the Lord\'s blessings for prosperity, peace, and fulfillment of desires.',
@@ -41,19 +41,43 @@ export const serviceDetails: ServiceDetail[] = [
     },
     rituals: {
       en: ['Kalasha Sthapana (Sacred pot installation)', 'Ganesh Puja', 'Satyanarayana Katha recitation', 'Prasadam distribution'],
-      te: ['కలశ స్థాపన', 'గణేశ పూజ', 'సత్యనారాయణ కథ పఠనం', 'ప్రసాద వितరణ']
+      te: ['కలశ స్థాపన', 'గణేశ పూజ', 'సత్యనారాయణ కథ పఠనం', 'ప్రసాద వితరణ']
     },
     requirements: {
       en: ['Fruits and flowers', 'Panchamrita ingredients', 'Incense and camphor', 'Prasadam items'],
       te: ['పండ్లు మరియు పూలు', 'పంచామృత పదార్థాలు', 'అగర్బత్తి మరియు కర్పూరం', 'ప్రసాద వస్తువులు']
     },
-    image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800'
+    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop'
+  },
+  {
+    id: 'srinivasa-kalyanam',
+    nameEn: 'Srinivasa Kalyanam',
+    nameTe: 'శ్రీనివాస కల్యాణం',
+    icon: 'https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=400&h=400&fit=crop',
+    shortDescriptionEn: 'The divine wedding ceremony of Lord Venkateswara and Goddess Padmavathi.',
+    shortDescriptionTe: 'భగవాన్ వేంకటేశ్వరుడు మరియు దేవి పద్మావతి దేవి యొక్క దివ్య వివాహ వేడుక.',
+    detailedDescriptionEn: 'Srinivasa Kalyanam is the celestial wedding ceremony of Lord Venkateswara (Srinivasa) with Goddess Padmavathi. This elaborate and deeply spiritual ceremony recreates the divine wedding as described in the Puranas, bringing immense blessings of marital harmony, prosperity, and spiritual elevation to devotees.',
+    detailedDescriptionTe: 'శ్రీనివాస కల్యాణం అనేది భగవాన్ వేంకటేశ్వరుడు (శ్రీనివాసుడు) దేవి పద్మావతితో చేసుకున్న దివ్య వివాహ వేడుక. ఈ విశాలమైన మరియు లోతైన ఆధ్యాత్మిక వేడుక పురాణాలలో వర్ణించిన దివ్య వివాహాన్ని పునఃసృష్టిస్తుంది.',
+    duration: '4-5 hours',
+    benefits: {
+      en: ['Blesses marriages with divine harmony', 'Removes obstacles in finding suitable partners', 'Brings prosperity and abundance', 'Ensures spiritual growth and devotion'],
+      te: ['వైవాహిక జీవితానికి దైవిక సామరస్యాన్ని అనుగ్రహిస్తుంది', 'తగిన జీవిత భాగస్వామిని కనుగొనడంలో అడ్డంకులను తొలగిస్తుంది', 'సంపద మరియు అభివృద్ధిని తెస్తుంది', 'ఆధ్యాత్మిక వృద్ధి మరియు భక్తిని నిర్ధారిస్తుంది']
+    },
+    rituals: {
+      en: ['Mandap decoration', 'Divine couple invocation', 'Sacred wedding rituals', 'Mangalsutra ceremony', 'Divine feast offering'],
+      te: ['మండప అలంకరణ', 'దివ్య దంపతుల ఆవాహన', 'పవిత్ర వివాహ కర్మలు', 'మంగళసూత్ర వేడుక', 'దివ్య భోజన సమర్పణ']
+    },
+    requirements: {
+      en: ['Elaborate mandap setup', 'Wedding garlands', 'Sacred ornaments', 'Traditional feast items', 'Silk clothes for deities'],
+      te: ['విస్తృత మండప ఏర్పాటు', 'వివాహ మాలలు', 'పవిత్ర ఆభరణాలు', 'సాంప్రదాయ భోజన వస్తువులు', 'దేవతలకు పట్టు వస్త్రాలు']
+    },
+    image: 'https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=800&h=600&fit=crop'
   },
   {
     id: 'barasala',
     nameEn: 'Barasala (Naming Ceremony)',
     nameTe: 'బారసాల',
-    icon: '👶',
+    icon: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=400&fit=crop',
     shortDescriptionEn: 'A ceremony celebrating the naming of a newborn child.',
     shortDescriptionTe: 'నవజాత శిశువుకు నామకరణం చేసే వేడుక.',
     detailedDescriptionEn: 'Barasala, also known as Namakaran, is a sacred Hindu ceremony where a newborn child is given their name. This auspicious ritual is typically performed on the 12th day after birth and marks the child\'s formal introduction to the family and community.',
@@ -71,13 +95,13 @@ export const serviceDetails: ServiceDetail[] = [
       en: ['Sacred thread', 'Flowers and fruits', 'Turmeric and kumkum', 'Sweets for distribution'],
       te: ['పవిత్ర దారం', 'పూలు మరియు పండ్లు', 'పసుపు మరియు కుంకుమ', 'పంపిణీ కోసం తీపిలు']
     },
-    image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800'
+    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=600&fit=crop'
   },
   {
     id: 'gruhapravesam',
     nameEn: 'Gruhapravesam',
     nameTe: 'గృహప్రవేశం',
-    icon: '🏡',
+    icon: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&h=400&fit=crop',
     shortDescriptionEn: 'A traditional housewarming ceremony for new homes.',
     shortDescriptionTe: 'కొత్త ఇళ్లకు సంప్రదాయ గృహప్రవేశ వేడుక.',
     detailedDescriptionEn: 'Gruhapravesam is a sacred Hindu ceremony performed when entering a new home for the first time. This ritual purifies the house, removes negative energies, and invites positive vibrations and divine blessings into the new dwelling.',
@@ -95,13 +119,13 @@ export const serviceDetails: ServiceDetail[] = [
       en: ['Kalasha with coconut', 'Flowers and mango leaves', 'Rice and turmeric', 'Oil lamps'],
       te: ['కొబ్బరితో కలశ', 'పూలు మరియు మామిడి ఆకులు', 'అన్నం మరియు పసుపు', 'నూనె దీపాలు']
     },
-    image: 'https://images.unsplash.com/photo-1466442929976-97f336a657be?w=800'
+    image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop'
   },
   {
     id: 'wedding',
     nameEn: 'Vivaham (Wedding)',
     nameTe: 'వివాహం',
-    icon: '💍',
+    icon: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=400&fit=crop',
     shortDescriptionEn: 'Traditional Telugu wedding ceremonies.',
     shortDescriptionTe: 'సాంప్రదాయ తెలుగు వివాహ వేడుకలు.',
     detailedDescriptionEn: 'Telugu wedding ceremonies are elaborate and sacred rituals that unite two souls in holy matrimony. These ceremonies are rich in tradition and include various rituals performed over multiple days, each with its own significance and blessings.',
@@ -119,13 +143,13 @@ export const serviceDetails: ServiceDetail[] = [
       en: ['Sacred fire', 'Mangalsutra', 'Wedding garlands', 'Rice and flowers'],
       te: ['పవిత్రమైన అగ్ని', 'మంగళసూత్రం', 'వివాహ మాలలు', 'అన్నం మరియు పూలు']
     },
-    image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800'
+    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop'
   },
   {
     id: 'annaprasana',
     nameEn: 'Annaprasana',
     nameTe: 'అన్నప్రాసన',
-    icon: '🍚',
+    icon: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=400&fit=crop',
     shortDescriptionEn: "Baby's first solid food ceremony.",
     shortDescriptionTe: 'శిశువుకి మొదటి ఆహారం అందించే వేడుక.',
     detailedDescriptionEn: 'Annaprasana is a sacred Hindu ceremony marking a baby\'s first intake of solid food. Typically performed when the child is 6-8 months old, this ritual signifies the transition from milk to solid food and seeks divine blessings for the child\'s healthy growth.',
@@ -143,13 +167,13 @@ export const serviceDetails: ServiceDetail[] = [
       en: ['Rice and ghee', 'Silver spoon', 'Fruits and sweets', 'Flowers for decoration'],
       te: ['అన్నం మరియు నెయ్యి', 'వెండి చెంచా', 'పండ్లు మరియు తీపిలు', 'అలంకరణ కోసం పూలు']
     },
-    image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800'
+    image: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&h=600&fit=crop'
   },
   {
     id: 'upanayanam',
     nameEn: 'Upanayanam',
     nameTe: 'ఉపనయనం',
-    icon: '🧵',
+    icon: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop',
     shortDescriptionEn: 'Sacred thread ceremony for young boys.',
     shortDescriptionTe: 'బాలురకు జరిగే పవిత్రమైన యజ్ఞోపవీతం వేడుక.',
     detailedDescriptionEn: 'Upanayanam is one of the most important samskaras (rites of passage) in Hindu tradition. This sacred thread ceremony initiates a young boy into spiritual learning and marks his entry into the student phase of life (Brahmacharya ashrama).',
@@ -167,13 +191,13 @@ export const serviceDetails: ServiceDetail[] = [
       en: ['Sacred thread', 'Turmeric and sandalwood', 'Sacred fire setup', 'Vedic materials'],
       te: ['పవిత్ర దారం', 'పసుపు మరియు చందనం', 'పవిత్రమైన అగ్ని ఏర్పాటు', 'వేద సామగ్రి']
     },
-    image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800'
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop'
   },
   {
     id: 'samvatsarika-pitru',
     nameEn: 'Samvatsarika Pitru Puja',
     nameTe: 'సంవత్సరిక పితృ పూజ',
-    icon: '🕯️',
+    icon: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
     shortDescriptionEn: 'Annual ancestral worship ceremony.',
     shortDescriptionTe: 'వార్షిక పూర్వీకుల ఆరాధన వేడుక.',
     detailedDescriptionEn: 'Samvatsarika Pitru Puja is an annual ceremony dedicated to honoring and seeking blessings from departed ancestors. This sacred ritual is performed to express gratitude, seek forgiveness, and ensure the spiritual well-being of both the ancestors and the living family members.',
@@ -191,13 +215,13 @@ export const serviceDetails: ServiceDetail[] = [
       en: ['Sesame seeds', 'Sacred water', 'Cooked rice', 'Black sesame'],
       te: ['నువ్వులు', 'పవిత్ర నీరు', 'వండిన అన్నం', 'నల్ల నువ్వులు']
     },
-    image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800'
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop'
   },
   {
     id: 'masika-pitru',
     nameEn: 'Masika Pitru Puja',
     nameTe: 'మాసిక పితృ పూజ',
-    icon: '🌙',
+    icon: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=400&fit=crop',
     shortDescriptionEn: 'Monthly ancestral worship ceremony.',
     shortDescriptionTe: 'మాసిక పూర్వీకుల ఆరాధన వేడుక.',
     detailedDescriptionEn: 'Masika Pitru Puja is a monthly ritual performed to honor departed ancestors. This ceremony maintains a continuous spiritual connection with ancestors and seeks their ongoing blessings for family prosperity and protection.',
@@ -215,13 +239,13 @@ export const serviceDetails: ServiceDetail[] = [
       en: ['Rice flour', 'Black sesame', 'Copper vessel', 'Sacred thread'],
       te: ['బియ్యం పిండి', 'నల్ల నువ్వులు', 'రాగి పాత్ర', 'పవిత్ర దారం']
     },
-    image: 'https://images.unsplash.com/photo-1466442929976-97f336a657be?w=800'
+    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop'
   },
   {
     id: 'abdika-pitru',
     nameEn: 'Abdika Pitru Puja',
     nameTe: 'ఆబ్దిక పితృ పూజ',
-    icon: '🪷',
+    icon: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400&h=400&fit=crop',
     shortDescriptionEn: 'Special ancestral worship on death anniversary.',
     shortDescriptionTe: 'మరణ వార్షికోత్సవంలో ప్రత్యేక పూర్వీకుల ఆరాధన.',
     detailedDescriptionEn: 'Abdika Pitru Puja is performed on the death anniversary of ancestors. This special ceremony is considered one of the most important rituals to ensure the departed soul\'s peace and to receive their blessings for the family\'s well-being.',
@@ -239,13 +263,13 @@ export const serviceDetails: ServiceDetail[] = [
       en: ['Pinda materials', 'Ganga water', 'White flowers', 'Donation items'],
       te: ['పిండ సామగ్రి', 'గంగా నీరు', 'తెల్ల పూలు', 'దాన వస్తువులు']
     },
-    image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800'
+    image: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=800&h=600&fit=crop'
   },
   {
     id: 'custom',
     nameEn: 'Custom Puja',
     nameTe: 'కస్టమ్ పూజ',
-    icon: '✨',
+    icon: 'https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&h=400&fit=crop',
     shortDescriptionEn: 'Personalized puja services based on your requirements.',
     shortDescriptionTe: 'మీ అవసరాల ప్రకారం వ్యక్తిగతీకరించిన పూజా సేవలు.',
     detailedDescriptionEn: 'Our custom puja services are tailored to meet your specific spiritual needs. Whether it\'s a special occasion, personal prayer, or unique ceremony, Pandit Eswar Prasad Valavalapalli will design and perform a personalized ritual according to your requirements.',
@@ -263,6 +287,6 @@ export const serviceDetails: ServiceDetail[] = [
       en: ['Depends on ceremony', 'Consultation required', 'Flexible arrangements', 'Personal preferences'],
       te: ['వేడుకపై ఆధారపడుతుంది', 'సంప్రదింపులు అవసరం', 'సౌకర్యవంతమైన ఏర్పాట్లు', 'వ్యక్తిగత ప్రాధాన్యతలు']
     },
-    image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800'
+    image: 'https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&h=600&fit=crop'
   }
 ];

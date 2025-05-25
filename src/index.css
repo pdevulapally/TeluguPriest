@@ -1,6 +1,7 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -51,6 +52,26 @@
 
   body {
     @apply bg-background text-foreground font-sans;
+    font-family: 'Poppins', 'Noto Sans Telugu', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', 'Noto Sans Telugu', serif;
+  }
+
+  /* Enhanced accessibility */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  button, a, input, select, textarea {
+    @apply transition-all duration-300 ease-in-out;
   }
 
   /* Custom styling for devotional elements */
@@ -68,65 +89,78 @@
     background-position: center;
   }
 
-  /* Custom button styles */
+  /* Enhanced button styles */
   .puja-button {
-    @apply relative overflow-hidden bg-primary text-primary-foreground rounded-lg px-6 py-3 font-medium transition-all duration-300 hover:shadow-lg;
+    @apply relative overflow-hidden bg-gradient-to-r from-primary to-secondary text-white rounded-xl px-6 py-3 font-semibold transition-all duration-300 hover:shadow-2xl hover:scale-105;
   }
 
   .puja-button::before {
     content: '';
-    @apply absolute inset-0 bg-accent opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 bg-gradient-to-r from-gold to-saffron opacity-0 transition-opacity duration-300;
   }
 
   .puja-button:hover::before {
-    @apply opacity-20;
+    @apply opacity-100;
   }
 
-  /* Custom card for services */
+  /* Enhanced card for services */
   .service-card {
-    @apply bg-white rounded-lg p-6 shadow-md transition-all duration-300 hover:shadow-xl border border-border hover:border-accent;
+    @apply bg-white rounded-2xl p-6 shadow-lg transition-all duration-500 hover:shadow-2xl border border-cream hover:border-accent hover:-translate-y-2;
   }
 
-  /* Glowing effect for CTA */
+  /* Premium glowing effect for CTA */
   .glowing-btn {
-    @apply relative bg-gradient-to-r from-saffron to-gold text-maroon font-bold py-4 px-8 rounded-lg shadow-lg transition-all duration-300;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+    @apply relative bg-gradient-to-r from-saffron to-gold text-white font-bold py-4 px-8 rounded-2xl shadow-2xl transition-all duration-300 hover:scale-105;
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
   }
 
   .glowing-btn:hover {
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.6);
   }
 
-  /* Custom styling for language toggle */
+  /* Enhanced language toggle */
   .language-toggle {
-    @apply bg-cream text-maroon border border-maroon rounded-full px-3 py-1 flex items-center justify-between text-sm font-medium;
+    @apply bg-white text-maroon border-2 border-maroon rounded-full px-4 py-2 flex items-center justify-between text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-300;
   }
 
   .language-toggle-option {
-    @apply px-3 py-1 rounded-full transition-all duration-200;
+    @apply px-4 py-2 rounded-full transition-all duration-300 font-medium;
   }
 
   .language-toggle-option.active {
-    @apply bg-saffron text-white;
+    @apply bg-gradient-to-r from-saffron to-gold text-white shadow-md;
   }
 
-  /* Animation utilities */
+  /* Enhanced animation utilities */
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
   }
 
   .animate-pulse-soft {
-    animation: pulse-soft 2s ease-in-out infinite;
+    animation: pulse-soft 3s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    animation: gradient 6s ease infinite;
+    background-size: 400% 400%;
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(2deg); }
+    50% { transform: translateY(-15px) rotate(0deg); }
+    75% { transform: translateY(-10px) rotate(-2deg); }
   }
 
   @keyframes pulse-soft {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   /* Text utilities */
@@ -137,22 +171,49 @@
     overflow: hidden;
   }
 
-  /* Custom scrollbar */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Enhanced scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
   }
 
   ::-webkit-scrollbar-track {
     background: hsl(var(--muted));
+    border-radius: 5px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary));
-    border-radius: 4px;
+    background: linear-gradient(to bottom, hsl(var(--primary)), hsl(var(--secondary)));
+    border-radius: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary) / 0.8);
+    background: linear-gradient(to bottom, hsl(var(--accent)), hsl(var(--primary)));
+  }
+
+  /* Image optimization */
+  img {
+    @apply transition-transform duration-300;
+  }
+
+  /* Premium card hover effects */
+  .premium-card {
+    @apply relative overflow-hidden bg-white rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl;
+  }
+
+  .premium-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-gold/5 to-saffron/5 opacity-0 transition-opacity duration-300;
+  }
+
+  .premium-card:hover::before {
+    @apply opacity-100;
   }
 
   /* Mobile optimizations */
@@ -163,6 +224,45 @@
     
     .glowing-btn {
       @apply px-6 py-3 text-base;
+    }
+
+    h1 {
+      @apply text-3xl;
+    }
+
+    h2 {
+      @apply text-2xl;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .glowing-btn {
+      box-shadow: none;
+      @apply border-2 border-current;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-float,
+    .animate-pulse-soft,
+    .animate-gradient {
+      animation: none;
+    }
+    
+    * {
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .glowing-btn,
+    .animate-float,
+    .animate-pulse-soft {
+      box-shadow: none;
+      animation: none;
     }
   }
 }

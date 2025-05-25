@@ -17,6 +17,7 @@ export interface Booking {
 
 export type BookingService = 
   | 'satyanarayana'
+  | 'srinivasa-kalyanam'
   | 'barasala'
   | 'gruhapravesam'
   | 'wedding'
@@ -30,6 +31,7 @@ export type BookingService =
 // Create an object with the booking service values for use in JavaScript
 export const BookingServices = {
   satyanarayana: 'satyanarayana',
+  srinivasaKalyanam: 'srinivasa-kalyanam',
   barasala: 'barasala',
   gruhapravesam: 'gruhapravesam',
   wedding: 'wedding',
