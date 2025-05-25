@@ -6,12 +6,12 @@ const HeroSection = () => {
   const { language, t } = useLanguage();
   
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-cream via-white to-gold/20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-cream via-white to-saffron/20 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-gold/10 rounded-full blur-3xl animate-pulse-soft"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 bg-maroon/10 rounded-full blur-3xl animate-pulse-soft"></div>
         <div className="absolute bottom-20 right-20 w-48 h-48 bg-saffron/10 rounded-full blur-3xl animate-pulse-soft delay-1000"></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-maroon/10 rounded-full blur-2xl animate-float"></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-primary/10 rounded-full blur-2xl animate-float"></div>
       </div>
       
       {/* Temple imagery */}
@@ -24,13 +24,14 @@ const HeroSection = () => {
       </div>
       
       <div className="container mx-auto px-4 text-center relative z-10 py-20">
-        {/* Decorative top element */}
+        {/* Decorative top element - simplified without glow */}
         <div className="flex justify-center mb-8">
-          <div className="relative">
-            <div className="w-20 h-20 bg-gradient-to-r from-gold to-saffron rounded-full flex items-center justify-center shadow-2xl">
-              <span className="text-2xl text-white">🕉️</span>
-            </div>
-            <div className="absolute -inset-2 bg-gradient-to-r from-gold to-saffron rounded-full blur opacity-30 animate-pulse-soft"></div>
+          <div className="w-20 h-20 bg-gradient-to-r from-maroon to-primary rounded-full flex items-center justify-center shadow-xl">
+            <img 
+              src="https://images.unsplash.com/photo-1580130544401-e0c0e9fb5e6e?w=40&h=40&fit=crop" 
+              alt="Sacred Symbol"
+              className="w-8 h-8 object-cover rounded-full"
+            />
           </div>
         </div>
         
@@ -48,7 +49,7 @@ const HeroSection = () => {
             {t('with Pandit Eswar Prasad Valavalapalli', 'పండిత ఈశ్వర్ ప్రసాద్ వలవలపల్లితో')}
           </p>
           <div className="flex justify-center mt-2">
-            <span className="inline-block bg-gradient-to-r from-gold to-saffron h-1 w-32 rounded-full"></span>
+            <span className="inline-block bg-gradient-to-r from-maroon to-saffron h-1 w-32 rounded-full"></span>
           </div>
         </div>
         
@@ -62,10 +63,14 @@ const HeroSection = () => {
             to="/booking" 
             className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-primary to-secondary rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 overflow-hidden"
           >
-            <span className="absolute inset-0 bg-gradient-to-r from-gold to-saffron opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            <span className="absolute inset-0 bg-gradient-to-r from-maroon to-saffron opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             <span className="relative flex items-center gap-2">
               <span>{t('Book Sacred Services', 'పవిత్ర సేవలను బుక్ చేయండి')}</span>
-              <span className="text-xl">📿</span>
+              <img 
+                src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=20&h=20&fit=crop" 
+                alt="Temple Bell"
+                className="w-5 h-5 object-cover rounded-full"
+              />
             </span>
           </Link>
           
@@ -104,13 +109,6 @@ const HeroSection = () => {
               {t('Vedic Traditions', 'వైదిక సంప్రదాయాలు')}
             </div>
           </div>
-        </div>
-      </div>
-      
-      {/* Floating scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>

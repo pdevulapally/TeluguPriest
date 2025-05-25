@@ -21,7 +21,7 @@ const ServicesGrid = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-maroon mb-4">
-            {t('Our Sacred Services', 'మా పవిత్ర సేవలు')}
+            {t('Pandit Services', 'పండిత్ సేవలు')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             {t('Experience authentic Vedic rituals performed with devotion and traditional expertise', 
@@ -48,15 +48,9 @@ const ServicesGrid = () => {
                 <h3 className="text-xl font-bold text-maroon mb-3 leading-tight">
                   {language === 'en' ? service.nameEn : service.nameTe}
                 </h3>
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-3 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-6 line-clamp-3 leading-relaxed">
                   {language === 'en' ? service.shortDescriptionEn : service.shortDescriptionTe}
                 </p>
-                
-                <div className="flex items-center mb-4 text-xs text-accent">
-                  <span className="bg-accent/10 px-3 py-1 rounded-full">
-                    ⏱️ {service.duration}
-                  </span>
-                </div>
                 
                 <div className="space-y-3">
                   <button 
@@ -78,8 +72,8 @@ const ServicesGrid = () => {
         </div>
         
         <div className="text-center mt-12">
-          <div className="inline-flex items-center gap-2 bg-gold/10 px-6 py-3 rounded-full">
-            <span className="text-gold text-lg">✨</span>
+          <div className="inline-flex items-center gap-2 bg-maroon/10 px-6 py-3 rounded-full">
+            <span className="text-maroon text-lg">✨</span>
             <span className="text-maroon font-medium">
               {t('All services available worldwide - In-person & Online', 
                  'అన్ని సేవలు ప్రపంచవ్యాప్తంగా అందుబాటులో - వ్యక్తిగతంగా మరియు ఆన్‌లైన్‌లో')}
