@@ -1,16 +1,15 @@
-
 import { useState } from 'react';
 import { Phone, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useLanguage } from '@/contexts/LanguageContext';
-
 const ContactSection = () => {
-  const { language, t } = useLanguage();
-  
-  return (
-    <section className="py-16 bg-white" id="contact">
+  const {
+    language,
+    t
+  } = useLanguage();
+  return <section className="py-16 bg-white" id="contact">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-maroon text-center mb-8">
           {t('Get in Touch', 'సంప్రదించండి')}
@@ -30,7 +29,7 @@ const ContactSection = () => {
                 <div className="font-medium">
                   {t('Phone', 'ఫోన్')}
                 </div>
-                <div className="text-lg">+1 (555) 123-4567</div>
+                <div className="text-lg">+44 7438 618486</div>
               </div>
             </div>
             
@@ -40,7 +39,7 @@ const ContactSection = () => {
               </Button>
               <div>
                 <div className="font-medium">WhatsApp</div>
-                <div className="text-lg">+1 (555) 987-6543</div>
+                <div className="text-lg">+44 7438 618486</div>
               </div>
             </div>
             
@@ -49,15 +48,13 @@ const ContactSection = () => {
                 {t('Best time to call:', 'కాల్ చేయడానికి ఉత్తమ సమయం:')}
               </h4>
               <p className="mb-4 text-sm">
-                {t('Available from 9:00 AM to 8:00 PM (EST) every day', 
-                  'ప్రతిరోజూ ఉదయం 9:00 నుండి సాయంత్రం 8:00 (EST) వరకు అందుబాటులో ఉంటుంది')}
+                {t('Available from 9:00 AM to 8:00 PM (EST) every day', 'ప్రతిరోజూ ఉదయం 9:00 నుండి సాయంత్రం 8:00 (EST) వరకు అందుబాటులో ఉంటుంది')}
               </p>
               <h4 className="font-medium text-maroon mb-2">
                 {t('Temple collaborations:', 'దేవాలయ సహకారం:')}
               </h4>
               <p className="text-sm">
-                {t('We welcome collaborations with temples and cultural organizations',
-                  'దేవాలయాలు మరియు సాంస్కృతిక సంస్థలతో సహకారాన్ని స్వాగతిస్తున్నాము')}
+                {t('We welcome collaborations with temples and cultural organizations', 'దేవాలయాలు మరియు సాంస్కృతిక సంస్థలతో సహకారాన్ని స్వాగతిస్తున్నాము')}
               </p>
             </div>
           </div>
@@ -72,30 +69,21 @@ const ContactSection = () => {
                 <label className="block text-sm font-medium mb-1">
                   {t('Your Name', 'మీ పేరు')}
                 </label>
-                <Input 
-                  placeholder={t('Enter your name', 'మీ పేరును నమోదు చేయండి')}
-                  className="h-12"
-                />
+                <Input placeholder={t('Enter your name', 'మీ పేరును నమోదు చేయండి')} className="h-12" />
               </div>
               
               <div>
                 <label className="block text-sm font-medium mb-1">
                   {t('Phone Number', 'ఫోన్ నంబర్')}
                 </label>
-                <Input 
-                  placeholder={t('Enter your phone number', 'మీ ఫోన్ నంబర్‌ని నమోదు చేయండి')}
-                  className="h-12"
-                />
+                <Input placeholder={t('Enter your phone number', 'మీ ఫోన్ నంబర్‌ని నమోదు చేయండి')} className="h-12" />
               </div>
               
               <div>
                 <label className="block text-sm font-medium mb-1">
                   {t('Your Message', 'మీ సందేశం')}
                 </label>
-                <Textarea 
-                  placeholder={t('How can we help you?', 'మేము మీకు ఎలా సహాయం చేయగలము?')}
-                  rows={4}
-                />
+                <Textarea placeholder={t('How can we help you?', 'మేము మీకు ఎలా సహాయం చేయగలము?')} rows={4} />
               </div>
               
               <Button className="bg-primary hover:bg-primary/90 text-white w-full py-6">
@@ -105,8 +93,6 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactSection;
