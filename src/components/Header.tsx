@@ -16,10 +16,11 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center gap-2">
           <div className="flex items-center">
-            <Bell className="h-7 w-7 text-maroon" />
-            <span className="ml-2 font-bold text-xl text-maroon">
-              {t('Telugu Priest', 'తెలుగు పూజారి')}
-            </span>
+            <img 
+              src="/lovable-uploads/bb67ed3d-2ff4-4f3b-aba0-eacaae604b3e.png" 
+              alt="Telugu Priest Logo" 
+              className="h-8 w-auto"
+            />
           </div>
         </div>
         

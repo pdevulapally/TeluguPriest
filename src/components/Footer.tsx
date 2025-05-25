@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Bell } from 'lucide-react';
 
@@ -11,10 +10,11 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between mb-10 gap-8">
           <div className="md:w-1/3">
             <div className="flex items-center mb-4">
-              <Bell className="h-6 w-6 text-gold" />
-              <span className="ml-2 font-bold text-xl text-gold">
-                {language === 'en' ? 'Telugu Priest' : 'తెలుగు పూజారి'}
-              </span>
+              <img 
+                src="/lovable-uploads/f507e85e-29fd-4195-957b-918f9aeb51a5.png" 
+                alt="Telugu Priest Logo" 
+                className="h-12 w-auto"
+              />
             </div>
             
             <p className="text-white/80 text-sm mb-4">
