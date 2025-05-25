@@ -1,19 +1,29 @@
+
 import { useState } from 'react';
 import { Phone, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useLanguage } from '@/contexts/LanguageContext';
+
 const ContactSection = () => {
-  const {
-    language,
-    t
-  } = useLanguage();
-  return <section className="py-16 bg-white" id="contact">
+  const { language, t } = useLanguage();
+  
+  return (
+    <section className="py-16 bg-white" id="contact">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-maroon text-center mb-8">
-          {t('Get in Touch', 'సంప్రదించండి')}
-        </h2>
+        <div className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-maroon mb-4">
+            {t('Get in Touch', 'సంప్రదించండి')}
+          </h2>
+          <div className="flex justify-center mb-6">
+            <img 
+              src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop" 
+              alt="Contact us" 
+              className="rounded-lg shadow-md"
+            />
+          </div>
+        </div>
         
         <div className="flex flex-col md:flex-row gap-10 max-w-5xl mx-auto">
           <div className="w-full md:w-1/2">
@@ -44,18 +54,36 @@ const ContactSection = () => {
             </div>
             
             <div className="bg-cream rounded-lg p-6">
-              <h4 className="font-medium text-maroon mb-2">
-                {t('Best time to call:', 'కాల్ చేయడానికి ఉత్తమ సమయం:')}
-              </h4>
-              <p className="mb-4 text-sm">
-                {t('Available from 9:00 AM to 8:00 PM (EST) every day', 'ప్రతిరోజూ ఉదయం 9:00 నుండి సాయంత్రం 8:00 (EST) వరకు అందుబాటులో ఉంటుంది')}
-              </p>
-              <h4 className="font-medium text-maroon mb-2">
-                {t('Temple collaborations:', 'దేవాలయ సహకారం:')}
-              </h4>
-              <p className="text-sm">
-                {t('We welcome collaborations with temples and cultural organizations', 'దేవాలయాలు మరియు సాంస్కృతిక సంస్థలతో సహకారాన్ని స్వాగతిస్తున్నాము')}
-              </p>
+              <div className="flex items-start gap-4 mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=40&h=40&fit=crop" 
+                  alt="Time" 
+                  className="w-8 h-8 rounded-full"
+                />
+                <div>
+                  <h4 className="font-medium text-maroon mb-2">
+                    {t('Best time to call:', 'కాల్ చేయడానికి ఉత్తమ సమయం:')}
+                  </h4>
+                  <p className="mb-4 text-sm">
+                    {t('Available from 9:00 AM to 8:00 PM (EST) every day', 'ప్రతిరోజూ ఉదయం 9:00 నుండి సాయంత్రం 8:00 (EST) వరకు అందుబాటులో ఉంటుంది')}
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=40&h=40&fit=crop" 
+                  alt="Temple" 
+                  className="w-8 h-8 rounded-full"
+                />
+                <div>
+                  <h4 className="font-medium text-maroon mb-2">
+                    {t('Temple collaborations:', 'దేవాలయ సహకారం:')}
+                  </h4>
+                  <p className="text-sm">
+                    {t('We welcome collaborations with temples and cultural organizations', 'దేవాలయాలు మరియు సాంస్కృతిక సంస్థలతో సహకారాన్ని స్వాగతిస్తున్నాము')}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           
@@ -93,6 +121,8 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ContactSection;

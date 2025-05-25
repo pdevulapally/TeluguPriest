@@ -73,7 +73,11 @@ const ServicesGrid = () => {
         
         <div className="text-center mt-12">
           <div className="inline-flex items-center gap-2 bg-maroon/10 px-6 py-3 rounded-full">
-            <span className="text-maroon text-lg">✨</span>
+            <img 
+              src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=32&h=32&fit=crop" 
+              alt="Global service" 
+              className="w-6 h-6 rounded-full"
+            />
             <span className="text-maroon font-medium">
               {t('All services available worldwide - In-person & Online', 
                  'అన్ని సేవలు ప్రపంచవ్యాప్తంగా అందుబాటులో - వ్యక్తిగతంగా మరియు ఆన్‌లైన్‌లో')}

@@ -4,7 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { serviceDetails } from '@/data/serviceDetails';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft, Clock, Star, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Star, CheckCircle } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -57,7 +57,6 @@ const ServiceDetailPage = () => {
                   />
                 </div>
                 <div className="md:w-1/2 p-6 md:p-8">
-                  <div className="text-4xl mb-4">{service.icon}</div>
                   <h1 className="text-2xl md:text-3xl font-bold text-maroon mb-4">
                     {language === 'en' ? service.nameEn : service.nameTe}
                   </h1>
@@ -65,10 +64,6 @@ const ServiceDetailPage = () => {
                     {language === 'en' ? service.detailedDescriptionEn : service.detailedDescriptionTe}
                   </p>
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="flex items-center gap-2">
-                      <Clock size={16} className="text-primary" />
-                      <span className="text-sm text-muted-foreground">{service.duration}</span>
-                    </div>
                     <div className="flex items-center gap-2">
                       <Star size={16} className="text-gold fill-gold" />
                       <span className="text-sm text-muted-foreground">
@@ -86,12 +81,17 @@ const ServiceDetailPage = () => {
               </div>
             </div>
             
-            {/* Details Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Enhanced Details Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {/* Benefits */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-maroon">
+                  <CardTitle className="text-maroon flex items-center gap-2">
+                    <img 
+                      src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=32&h=32&fit=crop" 
+                      alt="Benefits" 
+                      className="w-6 h-6 rounded-full"
+                    />
                     {t('Benefits', 'ప్రయోజనాలు')}
                   </CardTitle>
                 </CardHeader>
@@ -110,7 +110,12 @@ const ServiceDetailPage = () => {
               {/* Rituals */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-maroon">
+                  <CardTitle className="text-maroon flex items-center gap-2">
+                    <img 
+                      src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=32&h=32&fit=crop" 
+                      alt="Rituals" 
+                      className="w-6 h-6 rounded-full"
+                    />
                     {t('Key Rituals', 'ముఖ్య కర్మలు')}
                   </CardTitle>
                 </CardHeader>
@@ -129,7 +134,12 @@ const ServiceDetailPage = () => {
               {/* Requirements */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-maroon">
+                  <CardTitle className="text-maroon flex items-center gap-2">
+                    <img 
+                      src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=32&h=32&fit=crop" 
+                      alt="Requirements" 
+                      className="w-6 h-6 rounded-full"
+                    />
                     {t('Requirements', 'అవసరాలు')}
                   </CardTitle>
                 </CardHeader>
@@ -145,8 +155,59 @@ const ServiceDetailPage = () => {
                 </CardContent>
               </Card>
             </div>
+
+            {/* New Enhanced Sections */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              {/* Significance */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-maroon flex items-center gap-2">
+                    <img 
+                      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=32&h=32&fit=crop" 
+                      alt="Significance" 
+                      className="w-6 h-6 rounded-full"
+                    />
+                    {t('Spiritual Significance', 'ఆధ్యాత్మిక ప్రాముఖ్యత')}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2">
+                    {(language === 'en' ? service.significance.en : service.significance.te).map((item, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <CheckCircle size={16} className="text-secondary mt-1 flex-shrink-0" />
+                        <span className="text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* Occasions */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-maroon flex items-center gap-2">
+                    <img 
+                      src="https://images.unsplash.com/photo-1519741497674-611481863552?w=32&h=32&fit=crop" 
+                      alt="Occasions" 
+                      className="w-6 h-6 rounded-full"
+                    />
+                    {t('Perfect Occasions', 'సరైన సందర్భాలు')}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2">
+                    {(language === 'en' ? service.occasions.en : service.occasions.te).map((occasion, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <CheckCircle size={16} className="text-saffron mt-1 flex-shrink-0" />
+                        <span className="text-sm">{occasion}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
             
-            {/* About Pandit Section */}
+            {/* About Pandit Section with Image */}
             <Card className="mt-8">
               <CardHeader>
                 <CardTitle className="text-maroon text-center">
@@ -155,9 +216,11 @@ const ServiceDetailPage = () => {
               </CardHeader>
               <CardContent className="text-center">
                 <div className="mb-6 flex justify-center">
-                  <div className="w-32 h-32 rounded-full bg-gold/20 flex items-center justify-center text-4xl">
-                    🙏
-                  </div>
+                  <img 
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=128&h=128&fit=crop" 
+                    alt="Pandit Eswar Prasad" 
+                    className="w-32 h-32 rounded-full object-cover border-4 border-maroon/20"
+                  />
                 </div>
                 <h3 className="text-xl font-semibold mb-4">
                   {t('Pandit Eswar Prasad Valavalapalli', 'పండిత ఈశ్వర్ ప్రసాద్ వలవలపల్లి')}
