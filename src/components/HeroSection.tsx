@@ -1,12 +1,11 @@
-
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link } from 'react-router-dom';
-
 const HeroSection = () => {
-  const { language, t } = useLanguage();
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-cream via-white to-saffron/20 overflow-hidden">
+  const {
+    language,
+    t
+  } = useLanguage();
+  return <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-cream via-white to-saffron/20 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-10 left-10 w-32 h-32 bg-maroon/10 rounded-full blur-3xl animate-pulse-soft"></div>
@@ -16,23 +15,15 @@ const HeroSection = () => {
       
       {/* Temple imagery */}
       <div className="absolute inset-0 opacity-5">
-        <img 
-          src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop" 
-          alt="Temple background" 
-          className="w-full h-full object-cover" 
-        />
+        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop" alt="Temple background" className="w-full h-full object-cover" />
       </div>
       
       <div className="container mx-auto px-4 text-center relative z-10 py-20">
         {/* Main hero image */}
         <div className="flex justify-center mb-8">
           <div className="relative">
-            <img 
-              src="https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=400&h=300&fit=crop" 
-              alt="Temple ceremony" 
-              className="rounded-2xl shadow-2xl w-80 h-60 object-cover border-4 border-white/20"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-maroon/20 to-transparent rounded-2xl"></div>
+            <img src="https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=400&h=300&fit=crop" alt="Temple ceremony" className="rounded-2xl shadow-2xl w-80 h-60 object-cover border-4 border-white/20" />
+            
           </div>
         </div>
         
@@ -62,20 +53,14 @@ const HeroSection = () => {
         </p>
         
         <div className="space-y-4 sm:space-y-0 sm:space-x-6 sm:flex sm:justify-center">
-          <Link 
-            to="/booking" 
-            className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-primary to-secondary rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 overflow-hidden"
-          >
+          <Link to="/booking" className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-primary to-secondary rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 overflow-hidden">
             <span className="absolute inset-0 bg-gradient-to-r from-maroon to-saffron opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             <span className="relative flex items-center gap-2">
               <span>{t('Book Sacred Services', 'పవిత్ర సేవలను బుక్ చేయండి')}</span>
             </span>
           </Link>
           
-          <a 
-            href="#services" 
-            className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-primary border-2 border-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105"
-          >
+          <a href="#services" className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-primary border-2 border-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105">
             {t('Explore Services', 'సేవలను అన్వేషించండి')}
           </a>
         </div>
@@ -84,11 +69,7 @@ const HeroSection = () => {
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="text-center">
             <div className="mb-4 flex justify-center">
-              <img 
-                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=80&h=80&fit=crop" 
-                alt="Experience" 
-                className="w-16 h-16 rounded-full object-cover border-2 border-maroon/20"
-              />
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=80&h=80&fit=crop" alt="Experience" className="w-16 h-16 rounded-full object-cover border-2 border-maroon/20" />
             </div>
             <div className="text-2xl font-bold text-maroon">15+</div>
             <div className="text-sm text-muted-foreground">
@@ -97,11 +78,7 @@ const HeroSection = () => {
           </div>
           <div className="text-center">
             <div className="mb-4 flex justify-center">
-              <img 
-                src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=80&h=80&fit=crop" 
-                alt="Worldwide" 
-                className="w-16 h-16 rounded-full object-cover border-2 border-maroon/20"
-              />
+              <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=80&h=80&fit=crop" alt="Worldwide" className="w-16 h-16 rounded-full object-cover border-2 border-maroon/20" />
             </div>
             <div className="text-2xl font-bold text-maroon">
               {t('Worldwide', 'ప్రపంచవ్యాప్తంగా')}
@@ -112,11 +89,7 @@ const HeroSection = () => {
           </div>
           <div className="text-center">
             <div className="mb-4 flex justify-center">
-              <img 
-                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=80&h=80&fit=crop" 
-                alt="Authentic" 
-                className="w-16 h-16 rounded-full object-cover border-2 border-maroon/20"
-              />
+              <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=80&h=80&fit=crop" alt="Authentic" className="w-16 h-16 rounded-full object-cover border-2 border-maroon/20" />
             </div>
             <div className="text-2xl font-bold text-maroon">
               {t('Authentic', 'ప్రామాణిక')}
@@ -127,8 +100,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
