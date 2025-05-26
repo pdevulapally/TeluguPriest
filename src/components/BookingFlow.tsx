@@ -35,7 +35,7 @@ const BookingFlow = ({ selectedService, onClose }: BookingFlowProps) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const form = useForm<z.infer<typeof formSchema>>({
+  const form = useForm<z.infer<typeof bookingSchema>>({
     resolver: zodResolver(bookingSchema),
     defaultValues: {
       customerName: "",
@@ -58,7 +58,7 @@ const BookingFlow = ({ selectedService, onClose }: BookingFlowProps) => {
     setCurrentStep((prev) => prev - 1);
   };
 
-  const onSubmit = async (data: z.infer<typeof formSchema>) => {
+  const onSubmit = async (data: z.infer<typeof bookingSchema>) => {
     try {
       setIsSubmitting(true);
       
