@@ -21,7 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { CalendarCheck, Calendar } from "lucide-react";
+import { CalendarCheck, Calendar, Eye, RefreshCw } from "lucide-react";
 import {
   collection,
   getDocs,
@@ -30,6 +30,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { toast } from "sonner";
+import BookingDetailModal from "@/components/BookingDetailModal";
 
 const statusColors = {
   pending: "bg-yellow-100 text-yellow-800",
@@ -42,6 +43,8 @@ const AdminDashboard = () => {
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState("all");
+  const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
+  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
 
   useEffect(() => {
     fetchBookings();
@@ -86,6 +89,16 @@ const AdminDashboard = () => {
     }
   };
 
+  const openDetailModal = (booking: Booking) => {
+    setSelectedBooking(booking);
+    setIsDetailModalOpen(true);
+  };
+
+  const closeDetailModal = () => {
+    setSelectedBooking(null);
+    setIsDetailModalOpen(false);
+  };
+
   const filteredBookings = filter === "all" 
     ? bookings 
     : bookings.filter(booking => booking.status === filter);
@@ -105,15 +118,17 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div>
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4">
-        <h1 className="text-2xl font-bold text-maroon flex items-center">
-          <CalendarCheck className="mr-2" /> Booking Management
+    <div className="p-4 sm:p-6">
+      {/* Header Section - Mobile First */}
+      <div className="flex flex-col space-y-4 mb-6 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
+        <h1 className="text-xl sm:text-2xl font-bold text-maroon flex items-center">
+          <CalendarCheck className="mr-2 h-5 w-5 sm:h-6 sm:w-6" /> 
+          Booking Management
         </h1>
         
-        <div className="flex flex-col md:flex-row gap-4">
+        <div className="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
           <Select value={filter} onValueChange={setFilter}>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-full sm:w-[180px]">
               <SelectValue placeholder="Filter by status" />
             </SelectTrigger>
             <SelectContent>
@@ -129,12 +144,15 @@ const AdminDashboard = () => {
             onClick={() => fetchBookings()} 
             variant="outline"
             disabled={isLoading}
+            className="w-full sm:w-auto"
           >
+            <RefreshCw className={`h-4 w-4 mr-2 ${isLoading ? 'animate-spin' : ''}`} />
             Refresh
           </Button>
         </div>
       </div>
       
+      {/* Content Section */}
       <div className="bg-white rounded-lg shadow-lg overflow-hidden">
         {isLoading ? (
           <div className="flex justify-center items-center p-12">
@@ -151,72 +169,160 @@ const AdminDashboard = () => {
             </p>
           </div>
         ) : (
-          <div className="overflow-x-auto">
-            <Table>
-              <TableCaption>List of all booking requests</TableCaption>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Date</TableHead>
-                  <TableHead>Service</TableHead>
-                  <TableHead>Location</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
+          <>
+            {/* Mobile Card View */}
+            <div className="block sm:hidden">
+              <div className="divide-y divide-gray-200">
                 {filteredBookings.map((booking) => (
-                  <TableRow key={booking.id}>
-                    <TableCell className="font-medium">
-                      {format(parseISO(booking.date), "PP")}
-                    </TableCell>
-                    <TableCell>{renderServiceName(booking.service)}</TableCell>
-                    <TableCell>{booking.location}</TableCell>
-                    <TableCell>
+                  <div key={booking.id} className="p-4 space-y-3">
+                    <div className="flex items-start justify-between">
+                      <div className="space-y-1">
+                        <div className="font-medium text-sm">
+                          {renderServiceName(booking.service)}
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          {format(parseISO(booking.date), "MMM dd, yyyy")}
+                        </div>
+                        <div className="text-xs text-gray-500 truncate">
+                          {booking.location}
+                        </div>
+                      </div>
                       <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${statusColors[booking.status]}`}>
                         {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
                       </span>
-                    </TableCell>
-                    <TableCell className="text-right">
-                      <div className="flex justify-end gap-2">
-                        {booking.status === "pending" && (
-                          <>
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              onClick={() => updateStatus(booking.id, "confirmed")}
-                              className="bg-green-50 text-green-700 border-green-200 hover:bg-green-100"
-                            >
-                              Confirm
-                            </Button>
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              onClick={() => updateStatus(booking.id, "cancelled")}
-                              className="bg-red-50 text-red-700 border-red-200 hover:bg-red-100"
-                            >
-                              Cancel
-                            </Button>
-                          </>
-                        )}
-                        {booking.status === "confirmed" && (
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => openDetailModal(booking)}
+                        className="flex-1 sm:flex-none text-xs"
+                      >
+                        <Eye className="h-3 w-3 mr-1" />
+                        View Details
+                      </Button>
+                      
+                      {booking.status === "pending" && (
+                        <>
                           <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => updateStatus(booking.id, "completed")}
-                            className="bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100"
+                            onClick={() => updateStatus(booking.id, "confirmed")}
+                            className="bg-green-50 text-green-700 border-green-200 hover:bg-green-100 text-xs"
                           >
-                            Mark Completed
+                            Confirm
                           </Button>
-                        )}
-                      </div>
-                    </TableCell>
-                  </TableRow>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => updateStatus(booking.id, "cancelled")}
+                            className="bg-red-50 text-red-700 border-red-200 hover:bg-red-100 text-xs"
+                          >
+                            Cancel
+                          </Button>
+                        </>
+                      )}
+                      {booking.status === "confirmed" && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => updateStatus(booking.id, "completed")}
+                          className="bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100 text-xs"
+                        >
+                          Complete
+                        </Button>
+                      )}
+                    </div>
+                  </div>
                 ))}
-              </TableBody>
-            </Table>
-          </div>
+              </div>
+            </div>
+
+            {/* Desktop Table View */}
+            <div className="hidden sm:block overflow-x-auto">
+              <Table>
+                <TableCaption>List of all booking requests</TableCaption>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Date</TableHead>
+                    <TableHead>Service</TableHead>
+                    <TableHead>Location</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead className="text-right">Actions</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filteredBookings.map((booking) => (
+                    <TableRow key={booking.id}>
+                      <TableCell className="font-medium">
+                        {format(parseISO(booking.date), "PP")}
+                      </TableCell>
+                      <TableCell>{renderServiceName(booking.service)}</TableCell>
+                      <TableCell className="max-w-[200px] truncate">{booking.location}</TableCell>
+                      <TableCell>
+                        <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${statusColors[booking.status]}`}>
+                          {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
+                        </span>
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <div className="flex justify-end gap-2 flex-wrap">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => openDetailModal(booking)}
+                            className="bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100"
+                          >
+                            <Eye className="h-4 w-4" />
+                          </Button>
+                          
+                          {booking.status === "pending" && (
+                            <>
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={() => updateStatus(booking.id, "confirmed")}
+                                className="bg-green-50 text-green-700 border-green-200 hover:bg-green-100"
+                              >
+                                Confirm
+                              </Button>
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={() => updateStatus(booking.id, "cancelled")}
+                                className="bg-red-50 text-red-700 border-red-200 hover:bg-red-100"
+                              >
+                                Cancel
+                              </Button>
+                            </>
+                          )}
+                          {booking.status === "confirmed" && (
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => updateStatus(booking.id, "completed")}
+                              className="bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100"
+                            >
+                              Mark Completed
+                            </Button>
+                          )}
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          </>
         )}
       </div>
+
+      {/* Detail Modal */}
+      <BookingDetailModal 
+        booking={selectedBooking}
+        isOpen={isDetailModalOpen}
+        onClose={closeDetailModal}
+      />
     </div>
   );
 };
