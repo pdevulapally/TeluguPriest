@@ -68,7 +68,8 @@ export const generatePujaRequirementsPDF = (serviceKey: string, customerName: st
   
   const notes = [
     '• Please ensure all items are clean and fresh',
-    '• Arrive 15-20 minutes before the scheduled time',
+    '• Our priest will travel to your location wherever you are,',
+    '  regardless of the country',
     '• If you want anything to be customized according to your cultural',
     '  needs, please let our priest know beforehand',
     '• These requirements are general guidelines for everyone',
