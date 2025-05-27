@@ -1,0 +1,216 @@
+
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Video, Plus, ExternalLink, Calendar } from 'lucide-react';
+import { toast } from 'sonner';
+import { getZoomAuthUrl } from '@/lib/zoomConfig';
+import { createZoomMeeting, exchangeCodeForToken, ZoomMeeting } from '@/services/zoomService';
+import { format } from 'date-fns';
+
+const ZoomMeetingManager = () => {
+  const [isConnected, setIsConnected] = useState(!!localStorage.getItem('zoom_access_token'));
+  const [meetings, setMeetings] = useState<ZoomMeeting[]>([]);
+  const [isCreating, setIsCreating] = useState(false);
+  const [formData, setFormData] = useState({
+    topic: '',
+    start_time: '',
+    duration: 60,
+    agenda: ''
+  });
+
+  const handleConnectZoom = () => {
+    window.location.href = getZoomAuthUrl();
+  };
+
+  const handleCreateMeeting = async () => {
+    try {
+      setIsCreating(true);
+      const accessToken = localStorage.getItem('zoom_access_token');
+      
+      if (!accessToken) {
+        // Try to get token using stored auth code
+        const authCode = localStorage.getItem('zoom_auth_code');
+        if (authCode) {
+          const tokenData = await exchangeCodeForToken(authCode);
+          localStorage.setItem('zoom_access_token', tokenData.access_token);
+          localStorage.setItem('zoom_refresh_token', tokenData.refresh_token);
+          setIsConnected(true);
+        } else {
+          toast.error('Please connect to Zoom first');
+          return;
+        }
+      }
+
+      const meeting = await createZoomMeeting(accessToken!, {
+        topic: formData.topic,
+        start_time: new Date(formData.start_time).toISOString(),
+        duration: formData.duration,
+        agenda: formData.agenda
+      });
+
+      setMeetings(prev => [...prev, meeting]);
+      toast.success('Zoom meeting created successfully!');
+      
+      // Reset form
+      setFormData({
+        topic: '',
+        start_time: '',
+        duration: 60,
+        agenda: ''
+      });
+    } catch (error) {
+      console.error('Error creating meeting:', error);
+      toast.error('Failed to create Zoom meeting');
+    } finally {
+      setIsCreating(false);
+    }
+  };
+
+  const copyJoinLink = (joinUrl: string) => {
+    navigator.clipboard.writeText(joinUrl);
+    toast.success('Join link copied to clipboard!');
+  };
+
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Video className="h-5 w-5" />
+            Zoom Meeting Management
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          {!isConnected ? (
+            <div className="text-center py-8">
+              <Video className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
+              <h3 className="text-lg font-medium mb-2">Connect to Zoom</h3>
+              <p className="text-muted-foreground mb-4">
+                Connect your Zoom account to create and manage online events
+              </p>
+              <Button onClick={handleConnectZoom}>
+                Connect Zoom Account
+              </Button>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              {/* Create Meeting Form */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="topic">Meeting Topic</Label>
+                  <Input
+                    id="topic"
+                    value={formData.topic}
+                    onChange={(e) => setFormData(prev => ({ ...prev, topic: e.target.value }))}
+                    placeholder="e.g., Satyanarayana Vratam Online"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="start_time">Start Time</Label>
+                  <Input
+                    id="start_time"
+                    type="datetime-local"
+                    value={formData.start_time}
+                    onChange={(e) => setFormData(prev => ({ ...prev, start_time: e.target.value }))}
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="duration">Duration (minutes)</Label>
+                  <Input
+                    id="duration"
+                    type="number"
+                    value={formData.duration}
+                    onChange={(e) => setFormData(prev => ({ ...prev, duration: parseInt(e.target.value) }))}
+                    min="15"
+                    max="480"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="agenda">Agenda (Optional)</Label>
+                  <Textarea
+                    id="agenda"
+                    value={formData.agenda}
+                    onChange={(e) => setFormData(prev => ({ ...prev, agenda: e.target.value }))}
+                    placeholder="Meeting agenda or description"
+                    className="h-20"
+                  />
+                </div>
+              </div>
+              
+              <Button 
+                onClick={handleCreateMeeting} 
+                disabled={!formData.topic || !formData.start_time || isCreating}
+                className="w-full md:w-auto"
+              >
+                <Plus className="h-4 w-4 mr-2" />
+                {isCreating ? 'Creating Meeting...' : 'Create Zoom Meeting'}
+              </Button>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Meetings List */}
+      {meetings.length > 0 && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Calendar className="h-5 w-5" />
+              Scheduled Meetings
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              {meetings.map((meeting) => (
+                <div key={meeting.id} className="border rounded-lg p-4 space-y-3">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h4 className="font-medium">{meeting.topic}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {format(new Date(meeting.start_time), 'PPP p')} • {meeting.duration} minutes
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => copyJoinLink(meeting.join_url)}
+                    >
+                      Copy Join Link
+                    </Button>
+                    
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => window.open(meeting.join_url, '_blank')}
+                    >
+                      <ExternalLink className="h-4 w-4 mr-1" />
+                      Join Meeting
+                    </Button>
+                  </div>
+                  
+                  {meeting.password && (
+                    <p className="text-sm text-muted-foreground">
+                      Password: <code className="bg-muted px-1 rounded">{meeting.password}</code>
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      )}
+    </div>
+  );
+};
+
+export default ZoomMeetingManager;

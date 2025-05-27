@@ -12,6 +12,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AdminLayout from "./components/AdminLayout";
 import BookingPage from "./pages/BookingPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
+import ZoomCallback from "./pages/ZoomCallback";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/booking" element={<BookingPage />} />
             <Route path="/service/:serviceId" element={<ServiceDetailPage />} />
             <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/auth/zoom/callback" element={<ZoomCallback />} />
             <Route path="/admin" element={<AdminLayout />}>
               <Route path="dashboard" element={<AdminDashboard />} />
             </Route>
