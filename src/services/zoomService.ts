@@ -67,7 +67,8 @@ export const createZoomMeeting = async (accessToken: string, meetingData: {
     throw new Error('Failed to create Zoom meeting');
   }
 
-  return response.json() as ZoomMeeting;
+  const meetingData_response = await response.json();
+  return meetingData_response as ZoomMeeting;
 };
 
 export const getZoomMeetings = async (accessToken: string) => {

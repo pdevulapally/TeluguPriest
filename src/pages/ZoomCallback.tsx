@@ -2,28 +2,43 @@
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { toast } from 'sonner';
+import { exchangeCodeForToken } from '@/services/zoomService';
+import { storeZoomTokens } from '@/services/firebaseZoomService';
 
 const ZoomCallback = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const code = searchParams.get('code');
-    const error = searchParams.get('error');
+    const handleCallback = async () => {
+      const code = searchParams.get('code');
+      const error = searchParams.get('error');
 
-    if (error) {
-      toast.error('Zoom authorization failed');
-      navigate('/admin/dashboard');
-      return;
-    }
+      if (error) {
+        toast.error('Zoom authorization failed');
+        navigate('/admin/dashboard');
+        return;
+      }
 
-    if (code) {
-      // Store the authorization code in localStorage for now
-      // In a real app, you'd exchange this for an access token on the backend
-      localStorage.setItem('zoom_auth_code', code);
-      toast.success('Zoom connected successfully!');
-      navigate('/admin/dashboard');
-    }
+      if (code) {
+        try {
+          console.log('Exchanging code for token...');
+          const tokenData = await exchangeCodeForToken(code);
+          
+          console.log('Storing tokens in Firebase...');
+          await storeZoomTokens(tokenData);
+          
+          toast.success('Zoom connected successfully!');
+          navigate('/admin/dashboard');
+        } catch (error) {
+          console.error('Error during Zoom callback:', error);
+          toast.error('Failed to connect Zoom account');
+          navigate('/admin/dashboard');
+        }
+      }
+    };
+
+    handleCallback();
   }, [searchParams, navigate]);
 
   return (

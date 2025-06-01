@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -8,19 +8,53 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Video, Plus, ExternalLink, Calendar } from 'lucide-react';
 import { toast } from 'sonner';
 import { getZoomAuthUrl } from '@/lib/zoomConfig';
-import { createZoomMeeting, exchangeCodeForToken, ZoomMeeting } from '@/services/zoomService';
+import { createZoomMeeting, ZoomMeeting } from '@/services/zoomService';
+import { getZoomTokens, isTokenExpired, refreshZoomToken } from '@/services/firebaseZoomService';
 import { format } from 'date-fns';
 
 const ZoomMeetingManager = () => {
-  const [isConnected, setIsConnected] = useState(!!localStorage.getItem('zoom_access_token'));
+  const [isConnected, setIsConnected] = useState(false);
   const [meetings, setMeetings] = useState<ZoomMeeting[]>([]);
   const [isCreating, setIsCreating] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState({
     topic: '',
     start_time: '',
     duration: 60,
     agenda: ''
   });
+
+  useEffect(() => {
+    checkZoomConnection();
+  }, []);
+
+  const checkZoomConnection = async () => {
+    try {
+      const tokenData = await getZoomTokens();
+      setIsConnected(!!tokenData);
+    } catch (error) {
+      console.error('Error checking Zoom connection:', error);
+      setIsConnected(false);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const getValidAccessToken = async () => {
+    const tokenData = await getZoomTokens();
+    
+    if (!tokenData) {
+      throw new Error('No Zoom tokens found');
+    }
+
+    if (isTokenExpired(tokenData)) {
+      console.log('Token expired, refreshing...');
+      const refreshedTokens = await refreshZoomToken(tokenData.refresh_token);
+      return refreshedTokens.access_token;
+    }
+
+    return tokenData.access_token;
+  };
 
   const handleConnectZoom = () => {
     window.location.href = getZoomAuthUrl();
@@ -29,23 +63,10 @@ const ZoomMeetingManager = () => {
   const handleCreateMeeting = async () => {
     try {
       setIsCreating(true);
-      const accessToken = localStorage.getItem('zoom_access_token');
       
-      if (!accessToken) {
-        // Try to get token using stored auth code
-        const authCode = localStorage.getItem('zoom_auth_code');
-        if (authCode) {
-          const tokenData = await exchangeCodeForToken(authCode);
-          localStorage.setItem('zoom_access_token', tokenData.access_token);
-          localStorage.setItem('zoom_refresh_token', tokenData.refresh_token);
-          setIsConnected(true);
-        } else {
-          toast.error('Please connect to Zoom first');
-          return;
-        }
-      }
-
-      const meeting = await createZoomMeeting(accessToken!, {
+      const accessToken = await getValidAccessToken();
+      
+      const meeting = await createZoomMeeting(accessToken, {
         topic: formData.topic,
         start_time: new Date(formData.start_time).toISOString(),
         duration: formData.duration,
@@ -74,6 +95,14 @@ const ZoomMeetingManager = () => {
     navigator.clipboard.writeText(joinUrl);
     toast.success('Join link copied to clipboard!');
   };
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center p-8">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">

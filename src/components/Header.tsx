@@ -19,21 +19,29 @@ const Header = () => {
             <img 
               src="/lovable-uploads/bb67ed3d-2ff4-4f3b-aba0-eacaae604b3e.png" 
               alt="Telugu Priest Logo" 
-              className="h-8 w-auto"
+              className="h-10 w-auto md:h-12"
             />
           </div>
         </div>
         
         <div className="flex items-center gap-3">
           <button 
-            className="language-toggle"
+            className="flex items-center bg-gray-100 rounded-full p-1 hover:bg-gray-200 transition-colors"
             onClick={toggleLanguage}
           >
-            <span className={`language-toggle-option ${language === 'en' ? 'active' : ''}`}>
-              English
+            <span className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+              language === 'en' 
+                ? 'bg-primary text-white' 
+                : 'text-gray-600 hover:text-gray-800'
+            }`}>
+              EN
             </span>
-            <span className={`language-toggle-option ${language === 'te' ? 'active' : ''}`}>
-              తెలుగు
+            <span className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+              language === 'te' 
+                ? 'bg-primary text-white' 
+                : 'text-gray-600 hover:text-gray-800'
+            }`}>
+              తె
             </span>
           </button>
           
