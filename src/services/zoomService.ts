@@ -36,7 +36,7 @@ export const createZoomMeeting = async (accessToken: string, meetingData: {
   start_time: string;
   duration: number;
   agenda?: string;
-}) => {
+}): Promise<ZoomMeeting> => {
   const response = await fetch(`${zoomConfig.baseUrl}/users/me/meetings`, {
     method: 'POST',
     headers: {
