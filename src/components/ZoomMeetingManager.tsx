@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Video, Plus, ExternalLink, Calendar } from 'lucide-react';
+import { Video, Plus, ExternalLink, Calendar, AlertTriangle } from 'lucide-react';
 import { toast } from 'sonner';
 import { getZoomAuthUrl } from '@/lib/zoomConfig';
 import { createZoomMeeting, ZoomMeeting } from '@/services/zoomService';
@@ -17,6 +17,7 @@ const ZoomMeetingManager = () => {
   const [meetings, setMeetings] = useState<ZoomMeeting[]>([]);
   const [isCreating, setIsCreating] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [connectionError, setConnectionError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     topic: '',
     start_time: '',
@@ -30,10 +31,17 @@ const ZoomMeetingManager = () => {
 
   const checkZoomConnection = async () => {
     try {
+      setConnectionError(null);
       const tokenData = await getZoomTokens();
       setIsConnected(!!tokenData);
+      
+      if (tokenData && isTokenExpired(tokenData)) {
+        toast.info('Zoom token expired. Please reconnect.');
+        setIsConnected(false);
+      }
     } catch (error) {
       console.error('Error checking Zoom connection:', error);
+      setConnectionError('Failed to check Zoom connection status');
       setIsConnected(false);
     } finally {
       setIsLoading(false);
@@ -44,23 +52,40 @@ const ZoomMeetingManager = () => {
     const tokenData = await getZoomTokens();
     
     if (!tokenData) {
-      throw new Error('No Zoom tokens found');
+      throw new Error('No Zoom tokens found. Please reconnect your Zoom account.');
     }
 
     if (isTokenExpired(tokenData)) {
       console.log('Token expired, refreshing...');
-      const refreshedTokens = await refreshZoomToken(tokenData.refresh_token);
-      return refreshedTokens.access_token;
+      try {
+        const refreshedTokens = await refreshZoomToken(tokenData.refresh_token);
+        return refreshedTokens.access_token;
+      } catch (refreshError) {
+        console.error('Failed to refresh token:', refreshError);
+        throw new Error('Token expired and refresh failed. Please reconnect your Zoom account.');
+      }
     }
 
     return tokenData.access_token;
   };
 
   const handleConnectZoom = () => {
-    window.location.href = getZoomAuthUrl();
+    try {
+      const authUrl = getZoomAuthUrl();
+      console.log('Redirecting to Zoom auth URL:', authUrl);
+      window.location.href = authUrl;
+    } catch (error) {
+      console.error('Error generating Zoom auth URL:', error);
+      toast.error('Failed to generate Zoom authorization URL');
+    }
   };
 
   const handleCreateMeeting = async () => {
+    if (!formData.topic.trim() || !formData.start_time) {
+      toast.error('Please fill in all required fields');
+      return;
+    }
+
     try {
       setIsCreating(true);
       
@@ -85,7 +110,12 @@ const ZoomMeetingManager = () => {
       });
     } catch (error) {
       console.error('Error creating meeting:', error);
-      toast.error('Failed to create Zoom meeting');
+      const errorMessage = error instanceof Error ? error.message : 'Failed to create Zoom meeting';
+      toast.error(errorMessage);
+      
+      if (errorMessage.includes('reconnect')) {
+        setIsConnected(false);
+      }
     } finally {
       setIsCreating(false);
     }
@@ -114,6 +144,13 @@ const ZoomMeetingManager = () => {
           </CardTitle>
         </CardHeader>
         <CardContent>
+          {connectionError && (
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2">
+              <AlertTriangle className="h-4 w-4 text-red-600" />
+              <span className="text-red-700">{connectionError}</span>
+            </div>
+          )}
+          
           {!isConnected ? (
             <div className="text-center py-8">
               <Video className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
@@ -130,22 +167,24 @@ const ZoomMeetingManager = () => {
               {/* Create Meeting Form */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="topic">Meeting Topic</Label>
+                  <Label htmlFor="topic">Meeting Topic *</Label>
                   <Input
                     id="topic"
                     value={formData.topic}
                     onChange={(e) => setFormData(prev => ({ ...prev, topic: e.target.value }))}
                     placeholder="e.g., Satyanarayana Vratam Online"
+                    required
                   />
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="start_time">Start Time</Label>
+                  <Label htmlFor="start_time">Start Time *</Label>
                   <Input
                     id="start_time"
                     type="datetime-local"
                     value={formData.start_time}
                     onChange={(e) => setFormData(prev => ({ ...prev, start_time: e.target.value }))}
+                    required
                   />
                 </div>
                 
@@ -155,7 +194,7 @@ const ZoomMeetingManager = () => {
                     id="duration"
                     type="number"
                     value={formData.duration}
-                    onChange={(e) => setFormData(prev => ({ ...prev, duration: parseInt(e.target.value) }))}
+                    onChange={(e) => setFormData(prev => ({ ...prev, duration: parseInt(e.target.value) || 60 }))}
                     min="15"
                     max="480"
                   />
@@ -175,7 +214,7 @@ const ZoomMeetingManager = () => {
               
               <Button 
                 onClick={handleCreateMeeting} 
-                disabled={!formData.topic || !formData.start_time || isCreating}
+                disabled={!formData.topic.trim() || !formData.start_time || isCreating}
                 className="w-full md:w-auto"
               >
                 <Plus className="h-4 w-4 mr-2" />

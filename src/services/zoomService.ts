@@ -11,6 +11,11 @@ export interface ZoomMeeting {
 }
 
 export const exchangeCodeForToken = async (code: string) => {
+  console.log('Exchanging code for token with config:', {
+    clientId: zoomConfig.clientId,
+    redirectUri: zoomConfig.redirectUri
+  });
+
   const response = await fetch('https://zoom.us/oauth/token', {
     method: 'POST',
     headers: {
@@ -25,10 +30,14 @@ export const exchangeCodeForToken = async (code: string) => {
   });
 
   if (!response.ok) {
-    throw new Error('Failed to exchange code for token');
+    const errorText = await response.text();
+    console.error('Token exchange failed:', response.status, errorText);
+    throw new Error(`Failed to exchange code for token: ${response.status} ${errorText}`);
   }
 
-  return response.json();
+  const tokenData = await response.json();
+  console.log('Token exchange successful');
+  return tokenData;
 };
 
 export const createZoomMeeting = async (accessToken: string, meetingData: {
@@ -64,11 +73,13 @@ export const createZoomMeeting = async (accessToken: string, meetingData: {
   });
 
   if (!response.ok) {
-    throw new Error('Failed to create Zoom meeting');
+    const errorText = await response.text();
+    console.error('Meeting creation failed:', response.status, errorText);
+    throw new Error(`Failed to create Zoom meeting: ${response.status}`);
   }
 
-  const meetingData_response = await response.json();
-  return meetingData_response as ZoomMeeting;
+  const meetingDataResponse = await response.json();
+  return meetingDataResponse as ZoomMeeting;
 };
 
 export const getZoomMeetings = async (accessToken: string) => {
@@ -79,7 +90,9 @@ export const getZoomMeetings = async (accessToken: string) => {
   });
 
   if (!response.ok) {
-    throw new Error('Failed to fetch meetings');
+    const errorText = await response.text();
+    console.error('Failed to fetch meetings:', response.status, errorText);
+    throw new Error(`Failed to fetch meetings: ${response.status}`);
   }
 
   return response.json();
