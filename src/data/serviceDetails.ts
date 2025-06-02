@@ -1,5 +1,3 @@
-import { StaticImageData } from 'next/image';
-
 interface ServiceDetail {
   id: string;
   nameEn: string;
@@ -105,8 +103,6 @@ export const serviceDetails: ServiceDetail[] = [
     id: 'srinivasa-kalyanam',
     nameEn: 'Srinivasa Kalyanam',
     nameTe: 'శ్రీనివాస కల్యాణం',
-    icon: '/lovable-uploads/bb67ed3d-2ff4-4f3b-aba0-eacaae604b3e.png',
-    image: '/lovable-uploads/bb67ed3d-2ff4-4f3b-aba0-eacaae604b3e.png',
     shortDescriptionEn:
       'Celestial wedding ceremony of Lord Venkateswara and Goddess Padmavathi.',
     shortDescriptionTe:
@@ -183,15 +179,13 @@ export const serviceDetails: ServiceDetail[] = [
         'మొత్తం శ్రేయస్సు మరియు శ్రేయస్సు కోసం',
       ],
     },
-  icon: '/srinivasa-kalyanam-icon.png',
+    icon: '/srinivasa-kalyanam-icon.png',
     image: '/srinivasa-kalyanam.jpg',
   },
   {
     id: 'barasala',
     nameEn: 'Barasala (Naming Ceremony)',
     nameTe: 'బరసాల (నామకరణం)',
-    icon: '/lovable-uploads/f507e85e-29fd-4195-957b-918f9aeb51a5.png',
-    image: '/lovable-uploads/f507e85e-29fd-4195-957b-918f9aeb51a5.png',
     shortDescriptionEn: 'Traditional Hindu naming ceremony for newborn babies.',
     shortDescriptionTe: 'పుట్టిన శిశువుల కోసం సాంప్రదాయ హిందూ నామకరణ వేడుక.',
     detailedDescriptionEn:
@@ -266,7 +260,7 @@ export const serviceDetails: ServiceDetail[] = [
         'కొత్త కుటుంబ సభ్యుని రాకను జరుపుకోవడం కోసం',
       ],
     },
-  icon: '/barasala-icon.png',
+    icon: '/barasala-icon.png',
     image: '/barasala.jpg',
   },
   {
@@ -349,7 +343,7 @@ export const serviceDetails: ServiceDetail[] = [
         'మొత్తం శ్రేయస్సు మరియు శ్రేయస్సు కోసం',
       ],
     },
-  icon: '/satyanarayana-icon.png',
+    icon: '/satyanarayana-icon.png',
     image: '/satyanarayana-vratam.jpg',
   },
   {
@@ -432,7 +426,7 @@ export const serviceDetails: ServiceDetail[] = [
         'మొత్తం శ్రేయస్సు మరియు సంతోషం కోసం',
       ],
     },
-  icon: '/griha-pravesam-icon.png',
+    icon: '/griha-pravesam-icon.png',
     image: '/griha-pravesam.jpg',
   },
 ];
