@@ -1,10 +1,18 @@
+
 import { Booking } from '@/types/booking';
 import { collection, addDoc, getDocs, query, where, Timestamp, doc, updateDoc } from 'firebase/firestore';
 import { format, parseISO } from 'date-fns';
 import { db } from '@/lib/firebase';
+import { getUnavailableDates, isDateUnavailable } from './availabilityService';
 
 export const addBooking = async (booking: Omit<Booking, 'id' | 'createdAt' | 'status'>): Promise<string> => {
   try {
+    // Check if priest is available on the selected date
+    const dateUnavailable = await isDateUnavailable(new Date(booking.date));
+    if (dateUnavailable) {
+      throw new Error('Priest is not available on the selected date');
+    }
+    
     const bookingsRef = collection(db, 'bookings');
     const newBooking = {
       ...booking,
@@ -42,6 +50,21 @@ export const getBookedDates = async (): Promise<string[]> => {
       .map(booking => format(parseISO(booking.date), 'yyyy-MM-dd'));
   } catch (error) {
     console.error('Error getting booked dates:', error);
+    return [];
+  }
+};
+
+export const getUnavailableDatesForBooking = async (): Promise<string[]> => {
+  try {
+    const [bookedDates, priestUnavailableDates] = await Promise.all([
+      getBookedDates(),
+      getUnavailableDates()
+    ]);
+    
+    // Combine both booked dates and priest unavailable dates
+    return [...new Set([...bookedDates, ...priestUnavailableDates])];
+  } catch (error) {
+    console.error('Error getting unavailable dates for booking:', error);
     return [];
   }
 };

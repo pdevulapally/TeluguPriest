@@ -21,7 +21,7 @@ import {
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BookingService, BookingServices } from "@/types/booking";
-import { addBooking, getBookedDates } from "@/services/bookingService";
+import { addBooking, getUnavailableDatesForBooking } from "@/services/bookingService";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
@@ -39,7 +39,7 @@ const BookingPage = () => {
   const [location, setLocation] = useState("");
   const [service, setService] = useState<BookingService | "">("");
   const [date, setDate] = useState<Date | undefined>(undefined);
-  const [bookedDates, setBookedDates] = useState<string[]>([]);
+  const [unavailableDates, setUnavailableDates] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const navigate = useNavigate();
@@ -77,17 +77,17 @@ const BookingPage = () => {
   }, []);
   
   useEffect(() => {
-    // Load booked dates when component mounts
-    const fetchBookedDates = async () => {
+    // Load unavailable dates (both booked and priest unavailable) when component mounts
+    const fetchUnavailableDates = async () => {
       try {
-        const dates = await getBookedDates();
-        setBookedDates(dates);
+        const dates = await getUnavailableDatesForBooking();
+        setUnavailableDates(dates);
       } catch (error) {
-        console.error("Error fetching booked dates:", error);
+        console.error("Error fetching unavailable dates:", error);
       }
     };
     
-    fetchBookedDates();
+    fetchUnavailableDates();
     // Scroll to top when page loads
     window.scrollTo(0, 0);
   }, []);
@@ -98,10 +98,10 @@ const BookingPage = () => {
     today.setHours(0, 0, 0, 0);
     if (day < today) return true;
     
-    // Check if the date is already booked
-    return bookedDates.some(bookedDate => {
-      const bookedDateObj = new Date(bookedDate);
-      return day.toDateString() === bookedDateObj.toDateString();
+    // Check if the date is unavailable (booked or priest unavailable)
+    return unavailableDates.some(unavailableDate => {
+      const unavailableDateObj = new Date(unavailableDate);
+      return day.toDateString() === unavailableDateObj.toDateString();
     });
   };
 
@@ -400,18 +400,18 @@ const BookingPage = () => {
                         initialFocus
                         className="pointer-events-auto"
                         modifiers={{
-                          booked: (date) => bookedDates.some(bookedDate => 
-                            new Date(bookedDate).toDateString() === date.toDateString()
+                          unavailable: (date) => unavailableDates.some(unavailableDate => 
+                            new Date(unavailableDate).toDateString() === date.toDateString()
                           )
                         }}
                         modifiersClassNames={{
-                          booked: "bg-red-100 text-red-600 line-through opacity-70"
+                          unavailable: "bg-red-100 text-red-600 line-through opacity-70"
                         }}
                       />
                     </PopoverContent>
                   </Popover>
                   <p className="text-xs text-muted-foreground mt-1">
-                    {t("Dates highlighted in red are already booked", "ఎరుపు రంగులో హైలైట్ చేయబడిన తేదీలు ఇప్పటికే బుక్ చేయబడ్డాయి")}
+                    {t("Dates highlighted in red are unavailable (booked or priest unavailable)", "ఎరుపు రంగులో హైలైట్ చేయబడిన తేదీలు అందుబాటులో లేవు (బుక్ చేయబడ్డాయి లేదా పండితుడు అందుబాటులో లేరు)")}
                   </p>
                 </div>
               </div>
