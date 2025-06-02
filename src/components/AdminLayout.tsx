@@ -5,11 +5,13 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { LogOut } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const AdminLayout = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const auth = getAuth();
@@ -39,8 +41,8 @@ const AdminLayout = () => {
   
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-cream">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+      <div className="min-h-screen flex items-center justify-center bg-cream px-4">
+        <div className="animate-spin rounded-full h-8 w-8 sm:h-12 sm:w-12 border-t-2 border-b-2 border-primary"></div>
       </div>
     );
   }
@@ -51,28 +53,31 @@ const AdminLayout = () => {
   
   return (
     <div className="min-h-screen bg-cream">
-      <header className="bg-white shadow-md">
-        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+      <header className="bg-white shadow-md sticky top-0 z-50">
+        <div className="container mx-auto px-3 sm:px-4 py-3 flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <div className="text-lg font-bold text-maroon">🕉️ Telugu Priest Admin</div>
+            <div className="text-sm sm:text-lg font-bold text-maroon">
+              🕉️ Telugu Priest Admin
+            </div>
           </div>
           <Button 
             variant="outline" 
-            size="sm" 
+            size={isMobile ? "sm" : "sm"}
             onClick={handleLogout}
-            className="flex items-center gap-1"
+            className="flex items-center gap-1 text-xs sm:text-sm"
           >
-            <LogOut size={16} /> Logout
+            <LogOut size={isMobile ? 14 : 16} /> 
+            <span className="hidden sm:inline">Logout</span>
           </Button>
         </div>
       </header>
       
-      <main className="container mx-auto px-4 py-6">
+      <main className="container mx-auto px-3 sm:px-4 py-4 sm:py-6">
         <Outlet />
       </main>
       
       <footer className="bg-white border-t mt-auto">
-        <div className="container mx-auto px-4 py-3 text-center text-sm text-muted-foreground">
+        <div className="container mx-auto px-3 sm:px-4 py-3 text-center text-xs sm:text-sm text-muted-foreground">
           &copy; {new Date().getFullYear()} Telugu Priest Admin Dashboard
         </div>
       </footer>
