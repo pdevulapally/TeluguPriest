@@ -1,11 +1,12 @@
+
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link } from 'react-router-dom';
+
 const HeroSection = () => {
-  const {
-    language,
-    t
-  } = useLanguage();
-  return <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-cream via-white to-saffron/20 overflow-hidden">
+  const { language, t } = useLanguage();
+  
+  return (
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-cream via-white to-saffron/20 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-10 left-10 w-32 h-32 bg-maroon/10 rounded-full blur-3xl animate-pulse-soft"></div>
@@ -45,14 +46,20 @@ const HeroSection = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link to="/booking" className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-primary to-secondary rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 overflow-hidden w-full sm:w-auto">
+          <Link 
+            to="/booking" 
+            className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-primary to-secondary rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 overflow-hidden w-full sm:w-auto"
+          >
             <span className="absolute inset-0 bg-gradient-to-r from-maroon to-saffron opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             <span className="relative flex items-center gap-2">
               <span>{t('Book Sacred Services', 'పవిత్ర సేవలను బుక్ చేయండి')}</span>
             </span>
           </Link>
           
-          <a href="#services" className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-primary border-2 border-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105 w-full sm:w-auto">
+          <a 
+            href="#services" 
+            className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-primary border-2 border-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+          >
             {t('Explore Services', 'సేవలను అన్వేషించండి')}
           </a>
         </div>
@@ -63,7 +70,7 @@ const HeroSection = () => {
             <div className="mb-4 flex justify-center">
               <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=80&h=80&fit=crop" alt="Experience" className="w-16 h-16 rounded-full object-cover border-2 border-maroon/20" />
             </div>
-            <div className="text-2xl font-bold text-maroon">40+</div>
+            <div className="text-2xl font-bold text-maroon">15+</div>
             <div className="text-sm text-muted-foreground">
               {t('Years Experience', 'సంవత్సరాల అనుభవం')}
             </div>
@@ -92,6 +99,8 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;
