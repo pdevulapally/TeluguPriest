@@ -1,15 +1,17 @@
-
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Booking } from "@/types/booking";
 import { format, parseISO } from "date-fns";
-import { X, User, Phone, Mail, MapPin, Calendar, FileText, Home, Download } from "lucide-react";
+import { X, User, Phone, Mail, MapPin, Calendar, FileText, Home, Download, CheckCircle, Clock, XCircle } from "lucide-react";
 import jsPDF from 'jspdf';
+import { updateBookingStatus } from "@/services/bookingService";
+import { useState } from "react";
 
 interface BookingDetailModalProps {
   booking: Booking | null;
   isOpen: boolean;
   onClose: () => void;
+  onStatusUpdate: () => Promise<void>;
 }
 
 const statusColors = {
@@ -33,8 +35,29 @@ const renderServiceName = (serviceKey: string) => {
   return serviceNames[serviceKey] || serviceKey;
 };
 
-const BookingDetailModal = ({ booking, isOpen, onClose }: BookingDetailModalProps) => {
+const BookingDetailModal = ({ booking, isOpen, onClose, onStatusUpdate }: BookingDetailModalProps) => {
+  const [isUpdating, setIsUpdating] = useState(false);
+
   if (!booking) return null;
+
+  const handleStatusUpdate = async (newStatus: 'pending' | 'confirmed' | 'completed' | 'cancelled') => {
+    if (!booking.id) return;
+    
+    setIsUpdating(true);
+    try {
+      const success = await updateBookingStatus(booking.id, newStatus);
+      if (success) {
+        await onStatusUpdate();
+        console.log(`Booking status updated to ${newStatus}`);
+      } else {
+        console.error('Failed to update booking status');
+      }
+    } catch (error) {
+      console.error('Error updating booking status:', error);
+    } finally {
+      setIsUpdating(false);
+    }
+  };
 
   const downloadPDF = () => {
     const doc = new jsPDF();
@@ -153,11 +176,51 @@ const BookingDetailModal = ({ booking, isOpen, onClose }: BookingDetailModalProp
         </DialogHeader>
         
         <div className="space-y-4 sm:space-y-6 pt-4">
-          {/* Status Badge */}
-          <div className="flex justify-center sm:justify-start">
-            <span className={`inline-block px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-medium ${statusColors[booking.status]}`}>
-              {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
-            </span>
+          {/* Status Badge and Actions */}
+          <div className="space-y-3">
+            <div className="flex justify-center sm:justify-start">
+              <span className={`inline-block px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-medium ${statusColors[booking.status]}`}>
+                {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
+              </span>
+            </div>
+            
+            {/* Status Update Buttons */}
+            <div className="flex flex-wrap gap-2">
+              {booking.status === 'pending' && (
+                <>
+                  <Button
+                    size="sm"
+                    onClick={() => handleStatusUpdate('confirmed')}
+                    disabled={isUpdating}
+                    className="h-8 text-xs"
+                  >
+                    <CheckCircle className="h-3 w-3 mr-1" />
+                    Confirm
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="destructive"
+                    onClick={() => handleStatusUpdate('cancelled')}
+                    disabled={isUpdating}
+                    className="h-8 text-xs"
+                  >
+                    <XCircle className="h-3 w-3 mr-1" />
+                    Cancel
+                  </Button>
+                </>
+              )}
+              {booking.status === 'confirmed' && (
+                <Button
+                  size="sm"
+                  onClick={() => handleStatusUpdate('completed')}
+                  disabled={isUpdating}
+                  className="h-8 text-xs bg-blue-600 hover:bg-blue-700"
+                >
+                  <CheckCircle className="h-3 w-3 mr-1" />
+                  Mark Complete
+                </Button>
+              )}
+            </div>
           </div>
 
           {/* Customer Information */}
