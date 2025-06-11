@@ -70,7 +70,7 @@ const HeroSection = () => {
             <div className="mb-4 flex justify-center">
               <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=80&h=80&fit=crop" alt="Experience" className="w-16 h-16 rounded-full object-cover border-2 border-maroon/20" />
             </div>
-            <div className="text-2xl font-bold text-maroon">15+</div>
+            <div className="text-2xl font-bold text-maroon">40+</div>
             <div className="text-sm text-muted-foreground">
               {t('Years Experience', 'సంవత్సరాల అనుభవం')}
             </div>
