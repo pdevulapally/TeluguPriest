@@ -26,8 +26,8 @@ const PanditBio = () => {
               <div className="space-y-4 text-foreground text-left">
                 <p className="text-lg leading-relaxed">
                   {t(
-                    'With over 15 years of dedicated experience in performing traditional Telugu rituals and ceremonies, Pandit Eswar Prasad Valavalapalli is a highly respected Vedic scholar and priest.',
-                    'సాంప్రదాయ తెలుగు కర్మకాండలు మరియు వేడుకలు నిర్వహించడంలో 15 సంవత్సరాలకు పైగా అంకిత అనుభవంతో, పండిత ఈశ్వర్ ప్రసాద్ వలవలపల్లి అత్యంత గౌరవనీయమైన వేద పండితుడు మరియు పురోహితుడు.'
+                    'With over 40+ years of dedicated experience in performing traditional Telugu rituals and ceremonies, Pandit Eswar Prasad Valavalapalli is a highly respected Vedic scholar and priest.',
+                    'సాంప్రదాయ తెలుగు కర్మకాండలు మరియు వేడుకలు నిర్వహించడంలో 40 సంవత్సరాలకు పైగా అంకిత అనుభవంతో, పండిత ఈశ్వర్ ప్రసాద్ వలవలపల్లి అత్యంత గౌరవనీయమైన వేద పండితుడు మరియు పురోహితుడు.'
                   )}
                 </p>
                 
