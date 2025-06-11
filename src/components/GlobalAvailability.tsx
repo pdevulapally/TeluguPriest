@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Globe } from 'lucide-react';
 
@@ -63,9 +62,9 @@ const GlobalAvailability = () => {
         </div>
         
         <div className="mt-10">
-          <button className="glowing-btn">
+          <a href="tel:+447438618486" className="glowing-btn">
             {language === 'en' ? 'Contact for Availability' : 'అందుబాటు కోసం సంప్రదించండి'}
-          </button>
+          </a>
         </div>
       </div>
     </section>
