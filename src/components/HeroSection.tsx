@@ -1,4 +1,3 @@
-
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link } from 'react-router-dom';
 
@@ -64,21 +63,15 @@ const HeroSection = () => {
           </a>
         </div>
         
-        {/* Trust indicators with images */}
+        {/* Trust indicators without images */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="text-center">
-            <div className="mb-4 flex justify-center">
-              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=80&h=80&fit=crop" alt="Experience" className="w-16 h-16 rounded-full object-cover border-2 border-maroon/20" />
-            </div>
             <div className="text-2xl font-bold text-maroon">40+</div>
             <div className="text-sm text-muted-foreground">
               {t('Years Experience', 'సంవత్సరాల అనుభవం')}
             </div>
           </div>
           <div className="text-center">
-            <div className="mb-4 flex justify-center">
-              <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=80&h=80&fit=crop" alt="Worldwide" className="w-16 h-16 rounded-full object-cover border-2 border-maroon/20" />
-            </div>
             <div className="text-2xl font-bold text-maroon">
               {t('Worldwide', 'ప్రపంచవ్యాప్తంగా')}
             </div>
@@ -87,9 +80,6 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="text-center">
-            <div className="mb-4 flex justify-center">
-              <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=80&h=80&fit=crop" alt="Authentic" className="w-16 h-16 rounded-full object-cover border-2 border-maroon/20" />
-            </div>
             <div className="text-2xl font-bold text-maroon">
               {t('Authentic', 'ప్రామాణిక')}
             </div>
