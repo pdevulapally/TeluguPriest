@@ -128,7 +128,7 @@ export const serviceDetails: ServiceDetail[] = [
         'ముఖ్యమైన పనుల ముందు'
       ]
     },
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop'
+    image: '/Images/satyanarayana-swamy-pooja-photo-738052.jpg'
   },
   {
     id: 'srinivasa-kalyanam',
@@ -226,7 +226,7 @@ export const serviceDetails: ServiceDetail[] = [
         'సంబంధాల ఆశీర్వాదాలు'
       ]
     },
-    image: 'https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=800&h=600&fit=crop'
+    image: '/Images/1732167717768_B-098srinivasakalyanam.jpg'
   },
   {
     id: 'barasala',
@@ -324,7 +324,7 @@ export const serviceDetails: ServiceDetail[] = [
         'అనుకూలీకరించిన కుటుంబ ప్రాధాన్యతలు'
       ]
     },
-    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=600&fit=crop'
+    image: '/Images/Barasala-Ceremony-1000x1000.jpg'
   },
   {
     id: 'gruhapravesam',
@@ -422,7 +422,7 @@ export const serviceDetails: ServiceDetail[] = [
         'అద్దె ఇల్లు ఆశీర్వాదాలు'
       ]
     },
-    image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop'
+    image: '/Images/images (1).jpeg'
   },
   {
     id: 'wedding',
@@ -520,7 +520,7 @@ export const serviceDetails: ServiceDetail[] = [
         'సాంస్కృతిక వేడుక వివాహాలు'
       ]
     },
-    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop'
+    image: '/Images/Telugu+Wedding+ritual+Saptapati-1.jpg'
   },
   {
     id: 'annaprasana',
@@ -618,7 +618,7 @@ export const serviceDetails: ServiceDetail[] = [
         'ప్రత్యేక కుటుంబ వార్షికోత్సవ తేదీలు'
       ]
     },
-    image: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&h=600&fit=crop'
+    image: '/Images/images (2).jpeg'
   },
   {
     id: 'upanayanam',
@@ -716,7 +716,7 @@ export const serviceDetails: ServiceDetail[] = [
         'ప్రత్యేక కుటుంబ సందర్భాలు మరియు పండుగలు'
       ]
     },
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop'
+    image: '/Images/Upanayana-2.webp'
   },
   {
     id: 'samvatsarika-pitru',
@@ -814,7 +814,7 @@ export const serviceDetails: ServiceDetail[] = [
         'కుటుంబ కష్టాల సమయాలు లేదా పూర్వీకుల మార్గదర్శకత్వం కోరేటప్పుడు'
       ]
     },
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop'
+    image: '/Images/images.jpeg'
   },
   {
     id: 'masika-pitru',
@@ -912,7 +912,7 @@ export const serviceDetails: ServiceDetail[] = [
         'పూర్వీకుల మార్గదర్శకత్వం మరియు ఆశీర్వాదాలను కోరే సమయాలు'
       ]
     },
-    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop'
+    image: '/Images/Pitru-Paksha-Sankalp-Shradh-Srirangapatna-Creatives-2024-600-×600px-1.jpg'
   },
   {
     id: 'abdika-pitru',
@@ -1010,7 +1010,7 @@ export const serviceDetails: ServiceDetail[] = [
         'ముఖ్యమైన కుటుంబ మార్పులు'
       ]
     },
-    image: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=800&h=600&fit=crop'
+    image: '/Images/pitra-paksha.png'
   },
   {
     id: 'custom',
@@ -1108,6 +1108,6 @@ export const serviceDetails: ServiceDetail[] = [
         'ప్రామాణిక వేడుకలకు వ్యక్తిగతీకరణ అవసరమయ్యే ఏదైనా సందర్భం'
       ]
     },
-    image: 'https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&h=600&fit=crop'
+    image: '/Images/5358.webp'
   }
 ];
