@@ -1084,10 +1084,10 @@ export const serviceDetails: ServiceDetail[] = [
         'Honors individual devotion and spiritual aspirations'
       ],
       te: [
-        'ప్రత్యేక ఆధ్యాత్మిక అవసరాలు మరియు వ్యక్తిగత పరిస్థితులను పరిష్కరిస్తుంది',
-        'నిర్దిష్ట సవాళ్లకు లక్ష్యిత దైవిక జోక్యాన్ని అందిస్తుంది',
-        'వ్యక్తిగతీకరించిన ఆధ్యాత్మిక మార్గం మరియు వృద్ధిని సృష్టిస్తుంది',
-        'వ్యక్తిగత భక్తి మరియు ఆధ్యాత్మిక ఆకాంక్షలను గౌరవిస్తుంది'
+        'ప్రత్యేక ఆధ్యాత్మిక అవసరాలు మరియు వ్యక్తిగత పరిస్థితులను తీర్చడం',
+        'నిర్దిష్ట సవాళ్లకు లక్ష్యిత దైవిక జోక్యాన్ని అందించడం',
+        'వ్యక్తిగతీకరించిన ఆధ్యాత్మిక మార్గం మరియు వృద్ధిని సృష్టించడం',
+        'వ్యక్తిగత భక్తి మరియు ఆధ్యాత్మిక ఆకాంక్షలను గౌరవించడం'
       ]
     },
     occasions: {
@@ -1109,5 +1109,85 @@ export const serviceDetails: ServiceDetail[] = [
       ]
     },
     image: '/Images/5358.webp'
+  },
+  {
+    id: 'sri-rama-kalyanam',
+    nameEn: 'Sri Rama Kalyanam',
+    nameTe: 'శ్రీ రామ కల్యాణం',
+    icon: '/Images/sri-sita-rama-kalyanam_processed_341b2b3852a5b813f8e19c71c3c332bad51863a36ddff05aa5b9f47a90403f47_logo.jpg',
+    shortDescriptionEn: 'Divine wedding ceremony of Lord Rama and Sita celebrating eternal love and righteousness.',
+    shortDescriptionTe: 'భగవాన్ రామ మరియు సీతా దేవుల పవిత్ర వివాహం – శాశ్వత ప్రేమ మరియు ధర్మాన్ని జరుపుతుంది.',
+    detailedDescriptionEn: 'Sri Rama Kalyanam is a sacred ceremony commemorating the divine union of Lord Rama and Sita. This ritual, steeped in tradition, involves sacred prayers, epic recitations from the Ramayana, and traditional nuptial rites that bless the couple with love, duty, and spiritual harmony. It inspires participants to follow the path of righteousness and devotion.',
+    detailedDescriptionTe: 'శ్రీ రామ కల్యాణం ఒక పవిత్ర వేడుక, ఇది భగవాన్ రామ మరియు సీతా యొక్క దివ్య వివాహాన్ని జ్ఞాపకం చేసుకుంటుంది. ఈ సంప్రదాయ వేడుకలో పవిత్ర ప్రార్థనలు, రామాయణం నుండి శ్లోకాల పఠనం మరియు సాంప్రదాయ వైవాహిక కర్మకాండాలు ఉంటాయి, ఇవి జంటను ప్రేమ, విధి మరియు ఆధ్యాత్మిక సామరస్యంతో ఆశీర్వదిస్తాయి. ఇది భక్తి మరియు ధర్మ మార్గాన్ని అనుసరించడానికి ప్రేరణ ఇస్తుంది.',
+    duration: '3-4 hours',
+    benefits: {
+      en: [
+        'Blesses the couple with divine love and harmony',
+        'Inspires adherence to dharma and righteous living',
+        'Enhances spiritual growth and communal unity',
+        'Eradicates obstacles in marital life'
+      ],
+      te: [
+        'దివ్య ప్రేమ మరియు సామరస్యంతో జంటను ఆశీర్వదిస్తుంది',
+        'ధర్మాన్ని పాటించి న్యాయమైన జీవనాన్ని ప్రేరణ ఇస్తుంది',
+        'ఆధ్యాత్మిక వృద్ధిని మరియు సంఘ సమరస్యం పెంచుతుంది',
+        'వైవాహిక జీవితంలో అడ్డంకులను తొలగిస్తుంది'
+      ]
+    },
+    rituals: {
+      en: [
+        'Invocation of deities through sacred prayers',
+        'Recitation of selected verses from the Ramayana',
+        'Exchange of garlands and nuptial vows',
+        'Aarti and devotional singing'
+      ],
+      te: [
+        'పవిత్ర ప్రార్థనలతో దేవతా ఆవాహన',
+        'రామాయణం నుండి ఎంపికైన శ్లోకాల పఠనం',
+        'మాలల మార్పిడి మరియు వివాహ ప్రమాణాలు',
+        'ఆరతి మరియు భక్తి సారాలు'
+      ]
+    },
+    requirements: {
+      en: [
+        'Fresh flowers, fruits, and puja items',
+        'Traditional wedding attire and decorative materials',
+        'Ingredients for prasad and ceremonial offerings',
+        'A clean and decorated worship area'
+      ],
+      te: [
+        'తాజా పూలు, పండ్లు మరియు పూజ సామగ్రి',
+        'సాంప్రదాయ వివాహ దుస్తులు మరియు అలంకరణ పదార్థాలు',
+        'ప్రసాద్ మరియు వేడుక సమర్పణ పదార్థాలు',
+        'పరిశుభ్రమైన మరియు అలంకరించిన పూజా స్థలం'
+      ]
+    },
+    significance: {
+      en: [
+        'Symbolizes the union of divine virtues',
+        'Represents an ideal marital relationship',
+        'Inspires devotion and moral integrity',
+        'Aligns families with cosmic and spiritual energies'
+      ],
+      te: [
+        'దివ్య గుణాల సమ్మేళనాన్ని సూచిస్తుంది',
+        'ఆదర్శ వైవాహిక సంబంధాన్ని ప్రతిబింబిస్తుంది',
+        'భక్తి మరియు నైతిక సమగ్రతకు ప్రేరణ ఇస్తుంది',
+        'కుటుంబాలను విశ్వ మరియు ఆధ్యాత్మిక శక్తులతో అనుసంధానం చేస్తుంది'
+      ]
+    },
+    occasions: {
+      en: [
+        'Celebrated during Ram Navami',
+        'Ceremonies for couples seeking divine blessings',
+        'Cultural and religious festivals'
+      ],
+      te: [
+        'రామ నవమి సందర్భంగా జరుపబడుతుంది',
+        'దివ్య ఆశీర్వాదాల కోసం జంటలకు ప్రత్యేక వేడుకలు',
+        'సాంస్కృతిక మరియు మత ఉత్సవాలు'
+      ]
+    },
+    image: '/Images/download.jpeg'
   }
 ];
