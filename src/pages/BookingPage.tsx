@@ -275,16 +275,22 @@ const BookingPage = () => {
                   />
                 </div>
                 
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-1">
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-foreground">
                     {t("Phone Number", "ఫోన్ నంబర్")}*
                   </label>
                   <Input
                     placeholder={t("Enter your phone number", "మీ ఫోన్ నంబర్‌ను నమోదు చేయండి")}
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="text-base"
+                    className="w-full"
                   />
+                  <p className="text-sm text-muted-foreground mt-1">
+                    {t(
+                      "* For international bookings, please provide your WhatsApp number to help us contact you easily", 
+                      "* అంతర్జాతీయ బుకింగ్‌ల కోసం, మేము మిమ్మల్ని సులభంగా సంప్రదించడానికి దయచేసి మీ వాట్సాప్ నంబర్‌ను అందించండి"
+                    )}
+                  </p>
                 </div>
                 
                 <div>
