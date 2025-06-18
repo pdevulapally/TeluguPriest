@@ -9,6 +9,7 @@ import GlobalAvailability from '@/components/GlobalAvailability';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import { useEffect } from 'react';
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import '@/lib/firebase'; // Just import the firebase module to ensure it's initialized
 
 const Index = () => {
@@ -27,6 +28,7 @@ const Index = () => {
           <PanditBio />
           <GlobalAvailability />
           <ContactSection />
+          <FloatingWhatsApp />
         </main>
         <Footer />
       </div>
