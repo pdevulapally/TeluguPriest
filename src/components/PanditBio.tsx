@@ -10,7 +10,7 @@ const PanditBio = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-maroon text-center mb-12">
-            {t('Meet Your Trusted Telugu Priest', 'మీ నమ్మకమైన తెలుగు పురోహితుడిని కలవండి')}
+            {t('Meet Your Trusted Telugu Hindu Pandit', 'మీ నమ్మకమైన తెలుగు పురోహితుడిని కలవండి')}
           </h2>
           
           <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
