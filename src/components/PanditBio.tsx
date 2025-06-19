@@ -1,54 +1,59 @@
-
 // Om Ganesha Namah 🕉️
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const PanditBio = () => {
   const { t } = useLanguage();
-  
+
   return (
-    <section className="bg-cream py-16" id="about">
+    <section className="bg-cream py-20" id="about">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-maroon text-center mb-12">
-            {t('Meet Your Trusted Telugu Hindu Pandit', 'మీ నమ్మకమైన తెలుగు పురోహితుడిని కలవండి')}
+          <h2 className="text-3xl md:text-4xl font-bold text-maroon text-center mb-12 leading-snug">
+            {t('Meet Your Trusted Hindu Priest', 'మీ నమ్మకమైన హిందూ పూజారిని కలవండి')}
           </h2>
-          
-          <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+
+          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-10 transition-all">
             <div className="text-center">
-              <h3 className="text-2xl md:text-3xl font-bold text-maroon mb-2">
+              <h3 className="text-2xl md:text-3xl font-extrabold text-maroon mb-2">
                 {t('Pandit Eswar Prasad Valavalapalli', 'పండిత ఈశ్వర్ ప్రసాద్ వలవలపల్లి')}
               </h3>
-              
-              <p className="text-lg text-primary mb-6 font-medium">
-                {t('Telugu Priest & Vedic Scholar', 'తెలుగు పురోహితుడు & వేద పండితుడు')}
+
+              <p className="text-lg text-primary font-medium mb-6">
+                {t('Senior Vedic Priest | Telugu Brahmin Scholar | 40+ Years Experience', 'వృద్ధ వైదిక పూజారి | తెలుగు బ్రాహ్మణ పండితుడు | 40+ ఏళ్ల అనుభవం')}
               </p>
-              
-              <div className="space-y-4 text-foreground text-left">
+
+              <div className="text-foreground text-left space-y-5">
                 <p className="text-lg leading-relaxed">
                   {t(
-                    'With over 40+ years of dedicated experience in performing traditional Telugu rituals and ceremonies, Pandit Eswar Prasad Valavalapalli is a highly respected Vedic scholar and priest.',
-                    'సాంప్రదాయ తెలుగు కర్మకాండలు మరియు వేడుకలు నిర్వహించడంలో 40 సంవత్సరాలకు పైగా అంకిత అనుభవంతో, పండిత ఈశ్వర్ ప్రసాద్ వలవలపల్లి అత్యంత గౌరవనీయమైన వేద పండితుడు మరియు పురోహితుడు.'
+                    'Pandit Eswar Prasad is a highly respected Hindu priest and Vedic scholar with over 40 years of spiritual service. Recognised across Indian and NRI communities, he performs both North Indian and South Indian pujas with authenticity and devotion.',
+                    'పండిత ఈశ్వర్ ప్రసాద్ అనుభవజ్ఞ హిందూ పూజారి మరియు వేద పండితుడు – 40 సంవత్సరాలకు పైగా ఆధ్యాత్మిక సేవల అనుభవం కలిగి ఉన్నారు. భారతీయ మరియు ఎన్‌ఆర్‌ఐ సముదాయాలలో ప్రసిద్ధి గాంచిన ఆయన, నార్త్ మరియు సౌత్ ఇండియన్ పూజలు భక్తితో మరియు ప్రామాణికతతో నిర్వహిస్తారు.'
                   )}
                 </p>
-                
-                <p className="leading-relaxed">
+
+                <p className="text-base leading-relaxed">
                   {t(
-                    'Specializing in authentic Vedic practices and traditional Telugu ceremonies, he brings profound spiritual knowledge and devotion to every ritual. Whether performing ceremonies in person or guiding devotees through online pujas, his expertise ensures that every sacred practice is conducted with utmost precision and reverence.',
-                    'అసలైన వైదిక ఆచారాలు మరియు సాంప్రదాయ తెలుగు వేడుకలలో ప్రత్యేకత కలిగిన అతను ప్రతి కర్మకాండకు లోతైన ఆధ్యాత్మిక జ్ఞానం మరియు భక్తిని తెస్తాడు. వ్యక్తిగతంగా వేడుకలు నిర్వహించినా లేదా ఆన్‌లైన్ పూజల ద్వారా భక్తులకు మార్గనిర్దేశం చేసినా, అతని నైపుణ్యం ప్రతి పవిత్రమైన అభ్యాసం అత్యంత ఖచ్చితత్వంతో మరియు భక్తితో నిర్వహించబడేలా నిర్ధారిస్తుంది.'
+                    'He is dedicated to performing traditional Hindu ceremonies such as Satyanarayana Vratam, Grihapravesam (Housewarming), Upanayanam (Thread Ceremony), Seemantham, Annaprasanam, and Hindu weddings. Whether in London or abroad, you can book him in just 2 minutes for online or in-person ceremonies.',
+                    'సత్యనారాయణ వ్రతం, గృహప్రవేశం, ఉపనయనం, seemantham, అన్నప్రాశన మరియు హిందూ వివాహాల వంటి సంప్రదాయ వేడుకలను ఆయన నిర్వహించడంలో ప్రత్యేకత కలిగి ఉన్నారు. లండన్‌లోనైనా లేదా విదేశాల్లోనైనా, ఆన్‌లైన్ లేదా ప్రత్యక్ష పూజలకు కేవలం 2 నిమిషాల్లో బుక్ చేయవచ్చు.'
                   )}
                 </p>
-                
-                <div className="bg-cream p-4 rounded-lg">
-                  <h4 className="font-semibold text-maroon mb-2">
-                    {t('Specializations:', 'ప్రత్యేకతలు:')}
+
+                <div className="bg-cream p-5 rounded-xl mt-6">
+                  <h4 className="font-semibold text-maroon text-lg mb-3">
+                    {t('Key Services & Specializations:', 'ప్రధాన సేవలు & ప్రత్యేకతలు:')}
                   </h4>
-                  <ul className="text-sm space-y-1">
-                    <li>• {t('Traditional Telugu Wedding Ceremonies', 'సాంప్రదాయ తెలుగు వివాహ వేడుకలు')}</li>
-                    <li>• {t('Vedic Rituals & Pujas', 'వైదిక కర్మలు & పూజలు')}</li>
-                    <li>• {t('Ancestral Worship (Pitru Pujas)', 'పితృ పూజలు')}</li>
-                    <li>• {t('Housewarming & Sacred Ceremonies', 'గృహప్రవేశం & పవిత్ర వేడుకలు')}</li>
-                    <li>• {t('Online & In-Person Services Worldwide', 'ప్రపంచవ్యాప్తంగా ఆన్‌లైన్ & వ్యక్తిగత సేవలు')}</li>
+                  <ul className="list-disc list-inside text-sm space-y-1 text-foreground">
+                    <li>{t('North & South Indian Vedic Rituals', 'నార్త్ & సౌత్ ఇండియన్ వైదిక పూజలు')}</li>
+                    <li>{t('Satyanarayana Vratam, Upanayanam & Grihapravesam', 'సత్యనారాయణ వ్రతం, ఉపనయనం & గృహప్రవేశం')}</li>
+                    <li>{t('Hindu Weddings & Traditional Telugu Ceremonies', 'హిందూ వివాహాలు & సంప్రదాయ తెలుగు వేడుకలు')}</li>
+                    <li>{t('Pitru Paksha, Shraddha & Ancestral Pujas', 'పితృ పక్షం, శ్రద్ధ & పితృ పూజలు')}</li>
+                    <li>{t('Online & In-Person Puja Services – Globally Available', 'ప్రపంచవ్యాప్తంగా ఆన్‌లైన్ & ప్రత్యక్ష పూజ సేవలు')}</li>
                   </ul>
+                </div>
+
+                <div className="mt-6 text-center">
+                  <p className="text-primary font-medium">
+                    {t('Your trusted priest for every sacred occasion — book now to ensure availability.', 'ప్రతి పవిత్ర సందర్భానికి మీ నమ్మకమైన పూజారి — అందుబాటులో ఉండే సమయంలో ఇప్పుడే బుక్ చేయండి.')}
+                  </p>
                 </div>
               </div>
             </div>
