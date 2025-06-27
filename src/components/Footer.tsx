@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Bell } from 'lucide-react';
+import { Bell, Facebook } from 'lucide-react';
 
 const Footer = () => {
   const [language, setLanguage] = useState<'en' | 'te'>('en');
@@ -101,6 +101,25 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
+          </div>
+        </div>
+        
+        {/* Social Media Section */}
+        <div className="border-t border-white/20 pt-6 mb-6">
+          <div className="flex justify-center items-center space-x-6">
+            <h3 className="text-gold font-medium text-sm">
+              {language === 'en' ? 'Follow Us' : 'మమ్మల్ని అనుసరించండి'}
+            </h3>
+            <a 
+              href="https://www.facebook.com/TeluguPriestLondon/?locale=en_GB" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/80 hover:text-gold transition-colors flex items-center gap-2"
+              aria-label={language === 'en' ? 'Follow us on Facebook' : 'Facebook లో మమ్మల్ని అనుసరించండి'}
+            >
+              <Facebook size={20} />
+              <span className="text-sm">Facebook</span>
+            </a>
           </div>
         </div>
         
