@@ -33,6 +33,8 @@ import {
   CardHeader,
   CardTitle 
 } from "@/components/ui/card";
+import Breadcrumbs from '@/components/Breadcrumbs';
+import SEOHead from '@/components/SEOHead';
 
 const BookingPage = () => {
   const { language, t } = useLanguage();
@@ -189,6 +191,29 @@ const BookingPage = () => {
     }
   };
 
+  // SEO structured data for booking page
+  const bookingStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Hindu Priest Booking Service",
+    "description": "Book professional Hindu Priest Pandit Eswar Prasad for authentic ceremonies worldwide. Available for Satyanarayana Vratam, Gruhapravesam, Hindu weddings, and other Vedic rituals.",
+    "provider": {
+      "@type": "Person",
+      "name": "Pandit Eswar Prasad Valavalapalli",
+      "telephone": "+44 7438 618486"
+    },
+    "areaServed": "Worldwide",
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceType": "Online and In-Person Booking"
+    },
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "GBP"
+    }
+  };
+
   if (isSubmitted) {
     return (
       <div className="min-h-screen bg-cream flex items-center justify-center">
@@ -228,6 +253,19 @@ const BookingPage = () => {
 
   return (
     <div className="min-h-screen bg-cream">
+      <SEOHead 
+        title="Book Hindu Priest Online | Pandit Eswar Prasad | Professional Puja Services +44 7438 618486"
+        description="Book professional Hindu Priest Pandit Eswar Prasad for authentic ceremonies worldwide. Easy online booking for Satyanarayana Vratam, Gruhapravesam, Hindu weddings, and Vedic rituals. Available in-person & online globally."
+        keywords="book hindu priest online, pandit booking, puja booking, satyanarayana vratam booking, gruhapravesam booking, hindu wedding priest booking, online puja booking, vedic rituals booking, hindu priest london, telugu priest booking, professional pandit services, authentic hindu ceremonies booking"
+        canonical="https://telugupriest.com/booking"
+        structuredData={bookingStructuredData}
+      />
+      <Breadcrumbs 
+        items={[
+          { label: t('Home', 'హోమ్'), href: '/' },
+          { label: t('Book a Puja', 'పూజ బుక్ చేయండి') }
+        ]}
+      />
       <div className="container mx-auto px-4 py-8">
         <Button 
           variant="ghost" 
