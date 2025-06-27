@@ -6,6 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowLeft, Star, CheckCircle } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import SEOHead from '@/components/SEOHead';
+
 const ServiceDetailPage = () => {
   const {
     serviceId
@@ -15,7 +18,39 @@ const ServiceDetailPage = () => {
     language,
     t
   } = useLanguage();
-  const service = serviceDetails.find(s => s.id === serviceId);
+  
+  // Handle both service/:serviceId format and direct service URLs
+  const getServiceId = () => {
+    if (serviceId) {
+      // If it's already a service ID, use it
+      if (serviceDetails.find(s => s.id === serviceId)) {
+        return serviceId;
+      }
+      
+      // Map URL paths to service IDs
+      const urlToServiceMap: { [key: string]: string } = {
+        'satyanarayana-vratam': 'satyanarayana',
+        'gruhapravesam': 'gruhapravesam',
+        'hindu-wedding': 'hindu-wedding',
+        'barasala': 'barasala',
+        'upanayanam': 'upanayanam',
+        'seemantham': 'seemantham',
+        'annaprasana': 'annaprasana',
+        'pitra-paksha': 'pitra-paksha',
+        'ganesha-puja': 'ganesha-puja',
+        'lakshmi-puja': 'lakshmi-puja',
+        'durga-puja': 'durga-puja',
+        'online-puja': 'online-puja'
+      };
+      
+      return urlToServiceMap[serviceId] || serviceId;
+    }
+    return null;
+  };
+  
+  const actualServiceId = getServiceId();
+  const service = serviceDetails.find(s => s.id === actualServiceId);
+  
   if (!service) {
     return <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -28,8 +63,43 @@ const ServiceDetailPage = () => {
         </div>
       </div>;
   }
+
+  // SEO structured data for service page
+  const serviceStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": language === 'en' ? service.nameEn : service.nameTe,
+    "description": language === 'en' ? service.detailedDescriptionEn : service.detailedDescriptionTe,
+    "provider": {
+      "@type": "Person",
+      "name": "Pandit Eswar Prasad Valavalapalli",
+      "telephone": "+44 7438 618486"
+    },
+    "areaServed": "Worldwide",
+    "serviceType": "Hindu Religious Ceremony",
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "GBP"
+    }
+  };
+
   return <div className="min-h-screen flex flex-col">
+      <SEOHead 
+        title={`${language === 'en' ? service.nameEn : service.nameTe} | Professional Hindu Priest Services | Pandit Eswar Prasad +44 7438 618486`}
+        description={language === 'en' ? service.detailedDescriptionEn : service.detailedDescriptionTe}
+        keywords={`${language === 'en' ? service.nameEn : service.nameTe}, hindu priest services, ${service.id} ceremony, vedic rituals, pandit eswar prasad, telugu priest, authentic hindu ceremonies, online puja services`}
+        canonical={`https://telugupriest.com/service/${serviceId}`}
+        structuredData={serviceStructuredData}
+      />
       <Header />
+      <Breadcrumbs 
+        items={[
+          { label: t('Home', 'హోమ్'), href: '/' },
+          { label: t('Services', 'సేవలు'), href: '/#services' },
+          { label: language === 'en' ? service.nameEn : service.nameTe }
+        ]}
+      />
       
       <main className="flex-grow bg-cream">
         <div className="container mx-auto px-4 py-8">
