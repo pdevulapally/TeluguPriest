@@ -251,7 +251,7 @@ const ServiceDetailPage = () => {
                   {t('Telugu Priest', 'తెలుగు పురోహితుడు')}
                 </p>
                 <p className="text-foreground max-w-2xl mx-auto">
-                  {t('With over 40+ years of experience in traditional Telugu rituals and ceremonies, Pandit Eswar Prasad Valavalapalli brings authentic Vedic practices to devotees worldwide. His deep knowledge of Sanskrit, Telugu traditions, and Vedic scriptures ensures that every ceremony is performed with precision and devotion.', '15 సంవత్సరాలకు పైగా సాంప్రదాయ తెలుగు కర్మకాండలు మరియు వేడుకలలో అనుభవంతో, పండిత ఈశ్వర్ ప్రసాద్ వలవలపల్లి ప్రపంచవ్యాప్తంగా ఉన్న భక్తులకు అసలైన వైదిక ఆచారాలను అందిస్తున్నారు. సంస్కృతం, తెలుగు సంప్రదాయాలు మరియు వేద శాస్త్రాలలో అతని లోతైన జ్ఞానం ప్రతి వేడుక ఖచ్చితత్వంతో మరియు భక్తితో నిర్వహించబడేలా నిర్ధారిస్తుంది.')}
+                  {t('With over 40+ years of experience in traditional Telugu rituals and ceremonies, Pandit Eswar Prasad Valavalapalli brings authentic Vedic practices to devotees worldwide. His deep knowledge of Sanskrit, Telugu traditions, and Vedic scriptures ensures that every ceremony is performed with precision and devotion.', '40+ సంవత్సరాలకు పైగా సాంప్రదాయ తెలుగు కర్మకాండలు మరియు వేడుకలలో అనుభవంతో, పండిత ఈశ్వర్ ప్రసాద్ వలవలపల్లి ప్రపంచవ్యాప్తంగా ఉన్న భక్తులకు అసలైన వైదిక ఆచారాలను అందిస్తున్నారు. సంస్కృతం, తెలుగు సంప్రదాయాలు మరియు వేద శాస్త్రాలలో అతని లోతైన జ్ఞానం ప్రతి వేడుక ఖచ్చితత్వంతో మరియు భక్తితో నిర్వహించబడేలా నిర్ధారిస్తుంది.')}
                 </p>
               </CardContent>
             </Card>
