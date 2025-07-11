@@ -91,7 +91,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-gold transition-colors">
+                <a href="/privacy-policy" className="hover:text-gold transition-colors">
                   {language === 'en' ? 'Privacy Policy' : 'గోప్యతా విధానం'}
                 </a>
               </li>
