@@ -3,7 +3,7 @@ import React from "react";
 const PrivacyPolicy = () => (
   <div className="container mx-auto px-4 py-12 max-w-3xl text-gray-900">
     <h1 className="text-3xl md:text-4xl font-bold mb-6 text-maroon">Privacy Policy</h1>
-    <p className="mb-6 text-sm text-gray-600">Effective Date: <span className="font-semibold">[Insert Date]</span></p>
+    <p className="mb-6 text-sm text-gray-600">Effective Date: <span className="font-semibold">11/07/2025</span></p>
 
     <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">1. Introduction</h2>
     <p className="mb-4">Welcome to TeluguPriest.com (“we”, “us”, or “our”). We are committed to protecting your privacy and handling your personal information with transparency and care. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services, in compliance with global privacy regulations.</p>
@@ -15,7 +15,7 @@ const PrivacyPolicy = () => (
       <li><span className="font-semibold">Usage Data:</span> IP address, browser type and version, pages visited and time spent, referring website, device information.</li>
       <li><span className="font-semibold">Cookies and Tracking Technologies:</span> We use cookies and similar technologies to enhance your browsing experience, analyze website traffic, serve personalized ads (e.g., Google AdSense), and remember your preferences. You can manage your cookie preferences at any time via our cookie banner.</li>
     </ul>
-    <p className="mb-4"><span className="font-semibold">We do not sell your personal data to third parties.</span> However, we may display advertisements (such as Google AdSense) on our website. These ads may use cookies or similar technologies to personalize content and measure ad performance. You can control your ad and cookie preferences at any time using our cookie banner.</p>
+    <p className="mb-4"><span className="font-semibold">We do not sell your personal data to third parties, and we do not share any information with any providers.</span> However, we may display advertisements (such as Google AdSense) on our website. These ads may use cookies or similar technologies to personalize content and measure ad performance. You can control your ad and cookie preferences at any time using our cookie banner.</p>
 
     <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">3. How We Use Your Information</h2>
     <ul className="list-disc ml-6 mb-4">
@@ -31,7 +31,7 @@ const PrivacyPolicy = () => (
     <p className="mb-4">If you are in the European Economic Area (EEA) or UK, we process your personal data under the following legal bases: your consent, performance of a contract, compliance with legal obligations, and our legitimate interests (e.g., improving our services).</p>
 
     <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">5. Sharing Your Information</h2>
-    <p className="mb-4">We may share your information with service providers (e.g., payment processors, analytics, advertising partners), legal authorities if required by law, and other parties with your explicit consent. We do <span className="font-semibold">not</span> sell your personal information.</p>
+    <p className="mb-4">We do <span className="font-semibold">not</span> sell or share your personal information with any third parties or service providers. Your information remains confidential and is only used as described in this policy, unless required by law.</p>
 
     <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">6. International Data Transfers</h2>
     <p className="mb-4">Your information may be transferred to and processed in countries outside your own, including countries that may not have the same data protection laws. We take steps to ensure your data is protected, such as using standard contractual clauses.</p>
@@ -67,9 +67,8 @@ const PrivacyPolicy = () => (
     <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">13. Contact Us</h2>
     <p className="mb-2">If you have any questions or concerns about this Privacy Policy or your data, please contact us at:</p>
     <ul className="mb-8">
-      <li><span className="font-semibold">Email:</span> <a href="mailto:contact@telugupriest.com" className="text-gold underline">contact@telugupriest.com</a></li>
+      <li><span className="font-semibold">Email:</span> <a href="mailto:vveprasad@gmail.com" className="text-gold underline">contact@telugupriest.com</a></li>
       <li><span className="font-semibold">Phone:</span> +44 7438 618486</li>
-      <li><span className="font-semibold">Address:</span> [Insert Address]</li>
     </ul>
     <p className="text-xs text-gray-500">By using our website, you acknowledge that you have read and understood this Privacy Policy.</p>
   </div>
