@@ -50,7 +50,7 @@ const PrivacyPolicy = () => (
       <li>Withdraw consent at any time</li>
       <li>Lodge a complaint with a supervisory authority</li>
     </ul>
-    <p className="mb-4">To exercise your rights, please contact us at <a href="mailto:contact@telugupriest.com" className="text-gold underline">contact@telugupriest.com</a>.</p>
+    <p className="mb-4">To exercise your rights, please contact us at <a href="mailto:contact@telugupriest.com" className="text-gold underline">vveprasad@gmail.com</a>.</p>
 
     <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">9. Children’s Privacy</h2>
     <p className="mb-4">Our website is not intended for children under 16. We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us for removal.</p>
