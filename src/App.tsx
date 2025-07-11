@@ -14,6 +14,7 @@ import AdminLayout from "./components/AdminLayout";
 import BookingPage from "./pages/BookingPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import ZoomCallback from "./pages/ZoomCallback";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const queryClient = new QueryClient();
 
@@ -73,6 +74,9 @@ const App = () => (
               <Route path="/admin" element={<AdminLayout />}>
                 <Route path="dashboard" element={<AdminDashboard />} />
               </Route>
+
+              {/* Privacy Policy Route */}
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               
               {/* 404 Route */}
               <Route path="*" element={<NotFound />} />
