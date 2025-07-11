@@ -12,6 +12,16 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://telugupriest.com/te"/>
   </url>
 
+
+  <!-- ads.txt file -->
+  <url>
+    <loc>https://telugupriest.com/ads.txt</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+
   <!-- Telugu Homepage -->
   <url>
     <loc>https://telugupriest.com/te</loc>
