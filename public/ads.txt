@@ -1,0 +1,13 @@
+# ads.txt file for TeluguPriest.com
+# This file lists authorized sellers of digital inventory
+
+# Google AdSense
+google.com, pub-5875993760645634, DIRECT, f08c47fec0942fa0
+
+# Google Ad Manager
+google.com, pub-5875993760645634, DIRECT, f08c47fec0942fa0
+
+# Customer ID: 6319433408
+# Publisher ID: pub-5875993760645634
+
+# For more information about ads.txt, visit: https://iabtechlab.com/ads-txt/ 
