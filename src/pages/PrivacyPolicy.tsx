@@ -33,13 +33,10 @@ const PrivacyPolicy = () => (
     <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">5. Sharing Your Information</h2>
     <p className="mb-4">We do <span className="font-semibold">not</span> sell or share your personal information with any third parties or service providers. Your information remains confidential and is only used as described in this policy, unless required by law.</p>
 
-    <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">6. International Data Transfers</h2>
-    <p className="mb-4">Your information may be transferred to and processed in countries outside your own, including countries that may not have the same data protection laws. We take steps to ensure your data is protected, such as using standard contractual clauses.</p>
-
-    <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">7. Data Retention</h2>
+    <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">6. Data Retention</h2>
     <p className="mb-4">We retain your personal information only as long as necessary for the purposes described in this policy, or as required by law.</p>
 
-    <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">8. Your Rights</h2>
+    <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">7. Your Rights</h2>
     <p className="mb-4">Depending on your location, you may have the following rights:</p>
     <ul className="list-disc ml-6 mb-4">
       <li>Access your personal data</li>
@@ -50,24 +47,24 @@ const PrivacyPolicy = () => (
       <li>Withdraw consent at any time</li>
       <li>Lodge a complaint with a supervisory authority</li>
     </ul>
-    <p className="mb-4">To exercise your rights, please contact us at <a href="mailto:contact@telugupriest.com" className="text-gold underline">vveprasad@gmail.com</a>.</p>
+    <p className="mb-4">To exercise your rights, please contact us at <a href="mailto:vveprasad@gmail.com" className="text-gold underline">vveprasad@gmail.com</a>.</p>
 
-    <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">9. Children’s Privacy</h2>
+    <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">8. Children’s Privacy</h2>
     <p className="mb-4">Our website is not intended for children under 16. We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us for removal.</p>
 
-    <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">10. Security</h2>
+    <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">9. Security</h2>
     <p className="mb-4">We implement appropriate technical and organizational measures to protect your data from unauthorized access, disclosure, alteration, or destruction.</p>
 
-    <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">11. Third-Party Links</h2>
+    <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">10. Third-Party Links</h2>
     <p className="mb-4">Our website may contain links to third-party sites (e.g., YouTube, Facebook). We are not responsible for their privacy practices. Please review their privacy policies.</p>
 
-    <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">12. Changes to This Policy</h2>
+    <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">11. Changes to This Policy</h2>
     <p className="mb-4">We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date.</p>
 
-    <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">13. Contact Us</h2>
+    <h2 className="text-xl font-semibold mt-8 mb-2 text-maroon">12. Contact Us</h2>
     <p className="mb-2">If you have any questions or concerns about this Privacy Policy or your data, please contact us at:</p>
     <ul className="mb-8">
-      <li><span className="font-semibold">Email:</span> <a href="mailto:vveprasad@gmail.com" className="text-gold underline">contact@telugupriest.com</a></li>
+      <li><span className="font-semibold">Email:</span> <a href="mailto:vveprasad@gmail.com" className="text-gold underline">vveprasad@gmail.com</a></li>
       <li><span className="font-semibold">Phone:</span> +44 7438 618486</li>
     </ul>
     <p className="text-xs text-gray-500">By using our website, you acknowledge that you have read and understood this Privacy Policy.</p>
