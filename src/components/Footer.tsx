@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Bell, Facebook } from 'lucide-react';
+import { Bell, Facebook, Youtube } from 'lucide-react';
 
 const Footer = () => {
   const [language, setLanguage] = useState<'en' | 'te'>('en');
@@ -119,6 +119,16 @@ const Footer = () => {
             >
               <Facebook size={20} />
               <span className="text-sm">Facebook</span>
+            </a>
+            <a 
+              href="https://youtube.com/@eswaraprasadvalavalapalli?si=fBppR0GXXeB_BkB_" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/80 hover:text-gold transition-colors flex items-center gap-2"
+              aria-label={language === 'en' ? 'Follow us on YouTube' : 'YouTube లో మమ్మల్ని అనుసరించండి'}
+            >
+              <Youtube size={20} />
+              <span className="text-sm">YouTube</span>
             </a>
           </div>
         </div>
