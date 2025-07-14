@@ -96,7 +96,7 @@ const ContactSection = () => {
                     {t('Best time to call:', 'కాల్ చేయడానికి ఉత్తమ సమయం:')}
                   </h4>
                   <p className="mb-4 text-sm">
-                    {t('Available from 9:00 AM to 5:00 PM (GST) every day', 'ప్రతిరోజూ ఉదయం 9:00 నుండి సాయంత్రం 8:00 (EST) వరకు అందుబాటులో ఉంటుంది')}
+                    {t('Available from 9:00 AM to 5:00 PM (GMT) every day', 'ప్రతిరోజూ ఉదయం 9:00 నుండి సాయంత్రం 8:00 (EST) వరకు అందుబాటులో ఉంటుంది')}
                   </p>
                 </div>
               </div>
