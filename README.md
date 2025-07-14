@@ -1,6 +1,6 @@
 # 🕉️ Telugu Priest - Professional Hindu Priest Services Website
 
-A modern, SEO-optimized website for Pandit Eswar Prasad Valavalapalli, offering professional Hindu priest services worldwide. Built with React, TypeScript, and Tailwind CSS.
+A modern, SEO-optimised website for Pandit Eswar Prasad Valavalapalli, offering professional Hindu priest services worldwide. Built with React, TypeScript, and Tailwind CSS.
 
 ## 🌟 Features
 
