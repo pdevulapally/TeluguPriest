@@ -1,0 +1,28 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Allow read access to testimonial forms (for public feedback forms)
+    match /testimonialForms/{formId} {
+      allow read: if true; // Anyone can read forms to submit feedback
+      allow write: if true; // Allow writes for now (can be restricted later)
+    }
+    
+    // Allow read/write access to testimonial responses
+    match /testimonialResponses/{responseId} {
+      allow read: if true; // Anyone can read responses (for displaying testimonials)
+      allow write: if true; // Anyone can create/update responses (submit feedback)
+    }
+
+    // Default rule for all other collections
+    match /{document=**} {
+      // Allow read only if the user is authenticated
+      allow read: if request.auth != null;
+
+      // Allow write to everyone, including unauthenticated users
+      allow write: if true;
+    }
+
+  }
+} 

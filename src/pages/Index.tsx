@@ -7,6 +7,7 @@ import ServicesGrid from '@/components/ServicesGrid';
 import PanditBio from '@/components/PanditBio';
 import GlobalAvailability from '@/components/GlobalAvailability';
 import ContactSection from '@/components/ContactSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
 import Footer from '@/components/Footer';
 import { useEffect } from 'react';
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -27,6 +28,7 @@ const Index = () => {
           <ServicesGrid />
           <PanditBio />
           <GlobalAvailability />
+          <TestimonialsSection />
           <ContactSection />
           <FloatingWhatsApp />
         </main>

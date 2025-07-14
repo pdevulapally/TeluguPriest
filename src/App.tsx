@@ -15,6 +15,8 @@ import BookingPage from "./pages/BookingPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import ZoomCallback from "./pages/ZoomCallback";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import FeedbackForm from "./pages/FeedbackForm";
+import TestimonialEmbedPage from "./pages/TestimonialEmbed";
 
 const queryClient = new QueryClient();
 
@@ -77,6 +79,12 @@ const App = () => (
 
               {/* Privacy Policy Route */}
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              
+              {/* Feedback Form Route */}
+              <Route path="/feedback/:formId" element={<FeedbackForm />} />
+              
+              {/* Testimonial Embed Route */}
+              <Route path="/embed/testimonials" element={<TestimonialEmbedPage />} />
               
               {/* 404 Route */}
               <Route path="*" element={<NotFound />} />

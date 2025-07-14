@@ -11,6 +11,7 @@ import { format } from "date-fns";
 import BookingDetailModal from "@/components/BookingDetailModal";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import PriestAvailabilityManager from "@/components/PriestAvailabilityManager";
+import TestimonialManager from "@/components/TestimonialManager";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const AdminDashboard = () => {
@@ -151,12 +152,15 @@ const AdminDashboard = () => {
         </div>
 
         <Tabs defaultValue="bookings" className="space-y-4 sm:space-y-6">
-          <TabsList className="grid w-full grid-cols-2 h-10 sm:h-11">
+          <TabsList className="grid w-full grid-cols-3 h-10 sm:h-11">
             <TabsTrigger value="bookings" className="text-xs sm:text-sm">
               Bookings
             </TabsTrigger>
             <TabsTrigger value="availability" className="text-xs sm:text-sm">
               Availability
+            </TabsTrigger>
+            <TabsTrigger value="testimonials" className="text-xs sm:text-sm">
+              Testimonials
             </TabsTrigger>
           </TabsList>
 
@@ -253,6 +257,10 @@ const AdminDashboard = () => {
 
           <TabsContent value="availability">
             <PriestAvailabilityManager />
+          </TabsContent>
+
+          <TabsContent value="testimonials">
+            <TestimonialManager />
           </TabsContent>
         </Tabs>
 
