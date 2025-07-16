@@ -44,7 +44,7 @@ const Index = () => {
               <div className="max-w-4xl mx-auto space-y-6">
                 <div className="bg-cream/50 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-maroon mb-3">
-                    I need a pooja priest now - how quickly can you help?
+                    How quickly can you arrange a Telugu priest for urgent ceremonies?
                   </h3>
                   <p className="text-foreground">
                     We understand urgent situations! Pandit Eswar Prasad is available 24/7 for immediate bookings. 
@@ -82,7 +82,7 @@ const Index = () => {
                   </h3>
                   <p className="text-foreground">
                     Yes! We offer same-day and next-day bookings for urgent ceremonies. Online puja services can be 
-                    arranged immediately, while in-person services depend on your location. Call us at +44 7438 618486 
+                    arranged immediately, while in-person services depend on your location and availability. Call us at +44 7438 618486 
                     for the fastest response to urgent requests.
                   </p>
                 </div>
@@ -94,7 +94,7 @@ const Index = () => {
                   <p className="text-foreground">
                     We perform all major Hindu ceremonies including Satyanarayana Vratam, Gruhapravesam (house warming), 
                     Hindu weddings, Upanayanam (thread ceremony), Barasala (naming ceremony), Annaprasana (first rice), 
-                    Pitru Paksha rituals, and various deity-specific pujas (Ganesha, Lakshmi, Durga).
+                    Pitru Paksha rituals, and various deity-specific pujas (Ganesha, Lakshmi, Durga), Rama Navami, Srinivasa Kalyanam, and other special occasions.
                   </p>
                 </div>
                 
