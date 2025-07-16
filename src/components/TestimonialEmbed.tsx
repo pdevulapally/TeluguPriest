@@ -35,11 +35,16 @@ const TestimonialEmbed = ({
   const loadTestimonials = async () => {
     try {
       setIsLoading(true);
+      console.log("Loading testimonials with responseId:", responseId);
       
       if (responseId) {
         // Load specific testimonial
         const allResponses = await getTestimonialResponses();
+        console.log("All responses:", allResponses);
+        console.log("Looking for responseId:", responseId);
+        console.log("Available response IDs:", allResponses.map(r => r.id));
         const specificResponse = allResponses.find(response => response.id === responseId && response.isApproved);
+        console.log("Specific response found:", specificResponse);
         setTestimonials(specificResponse ? [specificResponse] : []);
       } else {
         // Load filtered testimonials
@@ -81,7 +86,15 @@ const TestimonialEmbed = ({
   }
 
   if (testimonials.length === 0) {
-    return null;
+    return (
+      <div className={`${className} ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+        <div className="text-center py-4">
+          <p className="text-sm text-muted-foreground">
+            {responseId ? `Testimonial with ID "${responseId}" not found or not approved.` : 'No testimonials found.'}
+          </p>
+        </div>
+      </div>
+    );
   }
 
   const themeClasses = {

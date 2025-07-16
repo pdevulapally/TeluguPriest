@@ -26,20 +26,20 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 text-center relative z-10 py-20">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-maroon mb-6 leading-tight">
           <span className="block mb-2">
-            {t('Need a Pooja Priest Now?', 'మీకు ఇప్పుడే పూజ పండితుడు అవసరమా?')}
+            {t('I Need a Pooja Priest Now!', 'నాకు ఇప్పుడే పూజ పండితుడు కావాలి!')}
           </span>
           <span className="block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            {t('Book Pandit Eswar Prasad Online', 'పండిత ఈశ్వర్ ప్రసాద్‌ను ఆన్‌లైన్‌లో బుక్ చేయండి')}
+            {t('Book Telugu Priest Eswar Prasad Online', 'తెలుగు పూజారి ఈశ్వర్ ప్రసాద్‌ను ఆన్‌లైన్‌లో బుక్ చేయండి')}
           </span>
           <span className="block text-2xl md:text-3xl lg:text-4xl mt-4 text-foreground">
-            {t('Top Telugu Hindu Pandit – North & South Indian Rituals', 'విశ్వసనీయ తెలుగు పూజారి – నార్త్ & సౌత్ ఇండియన్ పూజలు')}
+            {t('Top Telugu Hindu Pandit – Available 24/7 for Urgent Bookings', 'విశ్వసనీయ తెలుగు పూజారి – అత్యవసర బుకింగ్‌ల కోసం 24/7 అందుబాటులో')}
           </span>
         </h1>
 
         <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto mb-6 leading-relaxed">
           {t(
-            'Pandit Eswar Prasad Valavalapalli is an experienced Hindu priest offering authentic North and South Indian Vedic rituals including Satyanarayana Puja, Griha Pravesh, Hindu weddings, Upanayanam, and more. Book in just 2 minutes – available online or in-person globally.',
-            'పండిత ఈశ్వర్ ప్రసాద్ వలవలపల్లి అనుభవజ్ఞ హిందూ పూజారి – నార్త్ & సౌత్ ఇండియన్ పూజలు: సత్యనారాయణ వ్రతం, గృహప్రవేశం, హిందూ వివాహాలు, ఉపనయనము & మరిన్ని. ప్రపంచవ్యాప్తంగా ఆన్‌లైన్ లేదా ప్రత్యక్షంగా 2 నిమిషాల్లో బుక్ చేయండి.'
+            'Need a Telugu priest urgently? Pandit Eswar Prasad Valavalapalli is available 24/7 for immediate Hindu ceremonies including Satyanarayana Puja, Griha Pravesh, Hindu weddings, Upanayanam, and more. Book in just 2 minutes – same-day availability for urgent requests.',
+            'తెలుగు పూజారిని అత్యవసరంగా కావాలా? పండిత ఈశ్వర్ ప్రసాద్ వలవలపల్లి సత్యనారాయణ వ్రతం, గృహప్రవేశం, హిందూ వివాహాలు, ఉపనయనము & మరిన్ని వేగవంతమైన హిందూ వేడుకల కోసం 24/7 అందుబాటులో ఉన్నారు. 2 నిమిషాల్లో బుక్ చేయండి – అత్యవసర అభ్యర్థనల కోసం అదే రోజు అందుబాటు.'
           )}
         </p>
 

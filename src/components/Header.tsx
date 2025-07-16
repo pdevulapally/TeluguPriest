@@ -1,8 +1,9 @@
 
 import { useState } from 'react';
-import { Bell, Phone, MessageSquare } from 'lucide-react';
+import { Bell, Phone, MessageSquare, AlertTriangle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -25,6 +26,18 @@ const Header = () => {
         </div>
         
         <div className="flex items-center gap-3">
+          {/* Urgent Booking Button */}
+          <Link to="/urgent-booking">
+            <Button 
+              variant="destructive" 
+              size="sm" 
+              className="hidden sm:flex items-center gap-2 text-white bg-red-600 hover:bg-red-700"
+            >
+              <AlertTriangle className="h-4 w-4" />
+              <span className="hidden md:inline">Urgent Booking</span>
+            </Button>
+          </Link>
+          
           <button 
             className="flex items-center bg-gray-100 rounded-full p-1 hover:bg-gray-200 transition-colors"
             onClick={toggleLanguage}
@@ -46,12 +59,16 @@ const Header = () => {
           </button>
           
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost" size="icon" className="text-maroon">
-              <Phone className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon" className="text-green-600">
-              <MessageSquare className="h-5 w-5" />
-            </Button>
+            <a href="tel:+447438618486">
+              <Button variant="ghost" size="icon" className="text-maroon hover:bg-maroon/10">
+                <Phone className="h-5 w-5" />
+              </Button>
+            </a>
+            <a href="https://wa.me/447438618486">
+              <Button variant="ghost" size="icon" className="text-green-600 hover:bg-green-100">
+                <MessageSquare className="h-5 w-5" />
+              </Button>
+            </a>
           </div>
         </div>
       </div>

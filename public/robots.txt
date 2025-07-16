@@ -7,60 +7,28 @@ Sitemap: https://telugupriest.com/sitemap.xml
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
 
-# Allow all major search engines
-User-agent: Googlebot
-Allow: /
+# Allow all important pages
+Allow: /urgent-booking
+Allow: /booking
+Allow: /london
+Allow: /birmingham
+Allow: /manchester
+Allow: /leeds
+Allow: /cardiff
+Allow: /service/
+Allow: /satyanarayana-vratam
+Allow: /gruhapravesam
+Allow: /hindu-wedding
+Allow: /barasala
+Allow: /upanayanam
+Allow: /seemantham
+Allow: /annaprasana
+Allow: /pitra-paksha
+Allow: /ganesha-puja
+Allow: /lakshmi-puja
+Allow: /durga-puja
+Allow: /online-puja
 
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-# Block admin areas
+# Disallow admin areas
 Disallow: /admin/
 Disallow: /auth/
-Disallow: /api/
-
-# Block private areas
-Disallow: /private/
-Disallow: /internal/
-
-# Allow important pages
-Allow: /booking
-Allow: /service/
-Allow: /about
-Allow: /contact
-Allow: /privacy-policy
-Allow: /terms-of-service
-
-# Block unnecessary files
-Disallow: /*.json$
-Disallow: /*.xml$
-Disallow: /*.txt$
-Disallow: /search?
-Disallow: /filter?
-Disallow: /sort?
-
-# Allow images and assets
-Allow: /Images/
-Allow: /public/
-Allow: /assets/
-Allow: /*.css$
-Allow: /*.js$
-Allow: /*.png$
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.gif$
-Allow: /*.svg$
-Allow: /*.ico$
-Allow: /*.webp$

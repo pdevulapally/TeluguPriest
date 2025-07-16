@@ -12,6 +12,7 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminLayout from "./components/AdminLayout";
 import BookingPage from "./pages/BookingPage";
+import UrgentBooking from "./pages/UrgentBooking";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import ZoomCallback from "./pages/ZoomCallback";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -39,6 +40,20 @@ const App = () => (
               <Route path="/te/booking" element={<BookingPage />} />
               <Route path="/book-puja" element={<BookingPage />} />
               <Route path="/te/book-puja" element={<BookingPage />} />
+              <Route path="/urgent-booking" element={<UrgentBooking />} />
+              <Route path="/te/urgent-booking" element={<UrgentBooking />} />
+              
+              {/* Local City Routes for SEO */}
+              <Route path="/london" element={<Index />} />
+              <Route path="/te/london" element={<Index />} />
+              <Route path="/birmingham" element={<Index />} />
+              <Route path="/te/birmingham" element={<Index />} />
+              <Route path="/manchester" element={<Index />} />
+              <Route path="/te/manchester" element={<Index />} />
+              <Route path="/leeds" element={<Index />} />
+              <Route path="/te/leeds" element={<Index />} />
+              <Route path="/cardiff" element={<Index />} />
+              <Route path="/te/cardiff" element={<Index />} />
               
               {/* Service Detail Routes */}
               <Route path="/service/:serviceId" element={<ServiceDetailPage />} />
