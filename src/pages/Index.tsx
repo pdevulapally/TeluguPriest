@@ -103,9 +103,7 @@ const Index = () => {
                     How much does it cost to book a Telugu priest?
                   </h3>
                   <p className="text-foreground">
-                    Our pricing varies based on the ceremony type, location, and whether it's online or in-person. 
-                    We offer competitive rates starting from £50 for online ceremonies. Contact us for a detailed quote 
-                    based on your specific requirements and location.
+                    Our pricing depends on the type of pooja service, your location, and whether it's online or in-person. Please contact us for a detailed quote based on your specific requirements.
                   </p>
                 </div>
               </div>
