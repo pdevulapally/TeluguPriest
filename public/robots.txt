@@ -4,31 +4,20 @@ Allow: /
 # Sitemap
 Sitemap: https://telugupriest.com/sitemap.xml
 
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
-
-# Allow all important pages
-Allow: /urgent-booking
-Allow: /booking
-Allow: /london
-Allow: /birmingham
-Allow: /manchester
-Allow: /leeds
-Allow: /cardiff
-Allow: /service/
-Allow: /satyanarayana-vratam
-Allow: /gruhapravesam
-Allow: /hindu-wedding
-Allow: /barasala
-Allow: /upanayanam
-Allow: /seemantham
-Allow: /annaprasana
-Allow: /pitra-paksha
-Allow: /ganesha-puja
-Allow: /lakshmi-puja
-Allow: /durga-puja
-Allow: /online-puja
-
-# Disallow admin areas
+# Disallow admin and private areas
 Disallow: /admin/
-Disallow: /auth/
+Disallow: /private/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Allow important pages
+Allow: /booking
+Allow: /urgent-booking
+Allow: /privacy-policy
+Allow: /amp-index.html
+Allow: /amp-urgent-booking.html
+Allow: /amp-validator.html
+
+# Crawl delay (optional)
+Crawl-delay: 1
