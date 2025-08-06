@@ -15,9 +15,8 @@ Disallow: /static/
 Allow: /booking
 Allow: /urgent-booking
 Allow: /privacy-policy
-Allow: /amp-index.html
-Allow: /amp-urgent-booking.html
-Allow: /amp-validator.html
+
+
 
 # Crawl delay (optional)
 Crawl-delay: 1

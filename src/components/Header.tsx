@@ -13,7 +13,31 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border py-3 px-4">
+    <div>
+      {/* Vara Lakshmi Vratham Notification Banner */}
+      <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-white py-3 px-4 text-center">
+        <div className="container mx-auto">
+          {/* Mobile Layout */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
+            <span className="text-xl sm:text-lg">🕉️</span>
+            <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
+              <span className="font-medium text-sm sm:text-base">
+                Vara Lakshmi Vratham - August 8th @ 11:30 AM
+              </span>
+              <a
+                href="https://chat.whatsapp.com/FSaWINn0irKEYNh25QPF5f?mode=ac_t"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold transition-colors whitespace-nowrap"
+              >
+                Join WhatsApp Group
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border py-3 px-4">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center gap-2">
           <div className="flex items-center">
@@ -73,6 +97,7 @@ const Header = () => {
         </div>
       </div>
     </header>
+    </div>
   );
 };
 

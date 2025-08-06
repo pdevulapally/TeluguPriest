@@ -11,13 +11,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://telugupriest.com/"/>
   </url>
 
-  <!-- AMP Homepage -->
-  <url>
-    <loc>https://telugupriest.com/amp-index.html</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
+
 
   <!-- Booking Page -->
   <url>
@@ -35,14 +29,6 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- AMP Urgent Booking Page -->
-  <url>
-    <loc>https://telugupriest.com/amp-urgent-booking.html</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-
   <!-- Privacy Policy -->
   <url>
     <loc>https://telugupriest.com/privacy-policy</loc>
@@ -51,12 +37,6 @@
     <priority>0.3</priority>
   </url>
 
-  <!-- AMP Validator -->
-  <url>
-    <loc>https://telugupriest.com/amp-validator.html</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.2</priority>
-  </url>
+
 
 </urlset>
