@@ -95,8 +95,8 @@ const ContactSection = () => {
                   <span className="text-yellow-600 text-sm sm:text-lg">🕉️</span>
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h4 className="font-semibold text-yellow-800 text-sm sm:text-base">Vara Lakshmi Vratham</h4>
-                  <p className="text-xs sm:text-sm text-yellow-700">August 8th @ 11:30 AM</p>
+                  <h4 className="font-semibold text-yellow-800 text-sm sm:text-base">🕉️ SATYANARAYANA VRATHAM 🕉️</h4>
+                  <p className="text-xs sm:text-sm text-yellow-700">Nov 15th @ 6:00 PM BST</p>
                 </div>
               </div>
               <a
