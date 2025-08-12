@@ -53,10 +53,10 @@ const Header = () => {
             <div className="flex items-center justify-center gap-3 sm:gap-4">
               <div className="text-left">
                 <h3 className="font-black text-base sm:text-lg text-white leading-tight">
-                  🕉️ VARA LAKSHMI VRATHAM 🕉️
+                 🕉️ SATYANARAYANA VRATHAM 🕉️
                 </h3>
                 <p className="text-sm font-semibold text-yellow-100">
-                  August 8th @ 11:30 AM UK Time
+                 Nov 15th @ 6:00 PM BST
                 </p>
               </div>
               <a
@@ -77,10 +77,10 @@ const Header = () => {
           <div className="hidden lg:flex items-center justify-center gap-4 xl:gap-6">
             <div className="text-left">
               <h3 className="font-black text-lg xl:text-xl text-white leading-tight">
-                🕉️ VARA LAKSHMI VRATHAM 🕉️
+           🕉️ SATYANARAYANA VRATHAM 🕉️
               </h3>
               <p className="text-base xl:text-lg font-semibold text-yellow-100">
-                August 8th @ 11:30 AM UK Time
+                Nov 15th @ 6:00 PM BST
               </p>
             </div>
             <a
