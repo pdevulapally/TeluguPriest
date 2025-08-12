@@ -28,10 +28,10 @@ const Header = () => {
             <div className="flex flex-col items-center gap-2 sm:gap-3">
               <div className="text-center">
                 <h3 className="font-black text-sm sm:text-base text-white leading-tight">
-                  🕉️ VARA LAKSHMI VRATHAM 🕉️
+                  🕉️ SATYANARAYANA VRATHAM 🕉️
                 </h3>
                 <p className="text-xs sm:text-sm font-semibold text-yellow-100 mt-1">
-                  August 8th @ 11:30 AM
+                  Nov 15th @ 6:00 PM BST
                 </p>
               </div>
               <a
